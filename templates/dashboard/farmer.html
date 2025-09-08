@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}Farmer Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-success">Farmer Dashboard</h2>
+    <p class="lead">Welcome, {{ session['username'] }}!</p>
+
+    <!-- Overview Cards -->
+    <div class="row text-white">
+        <div class="col-md-3 mb-3">
+            <div class="card bg-success shadow-sm">
+                <div class="card-body">
+                    <h5>Total Products Registered</h5>
+                    <h3>{{ stats.total_products }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card bg-warning shadow-sm">
+                <div class="card-body">
+                    <h5>Pending Transactions</h5>
+                    <h3>{{ stats.pending_transactions }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card bg-info shadow-sm">
+                <div class="card-body">
+                    <h5>Last Harvest Date</h5>
+                    <h4>{{ stats.last_harvest or '--' }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card bg-primary shadow-sm">
+                <div class="card-body">
+                    <h5>Current Status</h5>
+                    <h4>{{ stats.status or 'Operational' }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Transaction Form -->
+    <div class="card my-5">
+        <div class="card-header bg-success text-white">
+            Register New Product / Transfer
+        </div>
+        <div class="card-body">
+            <form id="transaction-form" method="POST" action="/farmer/add_transaction">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="product_name" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" name="product_name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="recipient" class="form-label">Recipient</label>
+                        <input type="text" class="form-control" name="recipient" placeholder="Distributor Email" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="location" class="form-label">Farm Location</label>
+                        <input type="text" class="form-control" name="location" placeholder="Farm Name, City, Country">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="temperature" class="form-label">Temperature (°C)</label>
+                        <input type="number" step="0.1" class="form-control" name="temperature">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="humidity" class="form-label">Humidity (%)</label>
+                        <input type="number" step="0.1" class="form-control" name="humidity">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="transport_info" class="form-label">Transport Info</label>
+                    <input type="text" class="form-control" name="transport_info" placeholder="E.g., Crated and labeled">
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit Transaction</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registered Products -->
+    <h4 class="mt-5 mb-3">My Registered Products</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped" id="products-table">
+            <thead class="table-success">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product ID</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Last Updated</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.location or 'N/A' }}</td>
+                    <td>{{ product.status or 'In Transit' }}</td>
+                    <td>{{ product.last_updated }}</td>
+                    <td><a href="/track/{{ product.id }}" class="btn btn-sm btn-primary">Track</a></td>
+                </tr>
+                {% endfor %}
+                {% if products|length == 0 %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted">No products registered yet.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Recent Transactions -->
+    <h4 class="mt-5 mb-3">Recent Activities</h4>
+    <ul class="list-group" id="activity-feed">
+        {% for activity in recent_activities %}
+        <li class="list-group-item">{{ activity }}</li>
+        {% endfor %}
+        {% if recent_activities|length == 0 %}
+        <li class="list-group-item text-muted">No recent activity.</li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

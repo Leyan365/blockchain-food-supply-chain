@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="text-center mb-4">Blockchain Explorer</h2>
+    <p class="text-center lead">Explore the immutable history of product transactions on our public ledger.</p>
+
+    {% if blockchain_chain %}
+        {% for block in blockchain_chain %}
+            <div class="card shadow block-card mb-4">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center"
+                     data-bs-toggle="collapse" href="#block-{{ loop.index }}" role="button" aria-expanded="false" aria-controls="block-{{ loop.index }}">
+                    <span>Block #{{ block.index }}</span>
+                    <span>Timestamp: {{ block.timestamp|timestamp_to_datetime }}</span>
+                </div>
+                <div class="collapse" id="block-{{ loop.index }}">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <strong>Previous Hash:</strong> <small>{{ block.previous_hash }}</small><br>
+                            <strong>Hash:</strong> <small>{{ block.hash }}</small><br>
+                            <strong>Proof:</strong> <small>{{ block.proof }}</small>
+                        </div>
+                        
+                        <h5 class="card-title">Transactions ({{ block.transactions|length }})</h5>
+                        {% if block.transactions %}
+                            <ul class="list-group transaction-list">
+                                {% for tx in block.transactions %}
+                                    <li class="list-group-item transaction-card mb-2">
+                                        <div class="d-flex justify-content-between">
+                                            <small class="text-muted">ID: {{ tx.id }}</small>
+                                            <small class="badge bg-secondary">{{ tx.status }}</small>
+                                        </div>
+                                        <p class="mb-1">
+                                            <strong>Product:</strong> {{ tx.product_name or 'N/A' }} ({{ tx.product_id }})<br>
+                                            <strong>From:</strong> {{ tx.sender }}<br>
+                                            <strong>To:</strong> {{ tx.recipient }}
+                                        </p>
+                                        <button class="btn btn-link btn-sm p-0 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#tx-details-{{ block.index }}-{{ loop.index }}" aria-expanded="false">
+                                            View Details
+                                        </button>
+                                        <div class="collapse" id="tx-details-{{ block.index }}-{{ loop.index }}">
+                                            <hr>
+                                            <strong>Location:</strong> {{ tx.location or 'N/A' }}<br>
+                                            <strong>Temp:</strong> {{ tx.temperature or 'N/A' }}°C<br>
+                                            <strong>Humidity:</strong> {{ tx.humidity or 'N/A' }}%<br>
+                                            <strong>Info:</strong> {{ tx.transport_info or 'N/A' }}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-muted">This block contains no transactions.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info text-center" role="alert">
+            The blockchain is currently empty.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Image and Semi-transparent Overlay Removed -->
+<section class="hero-section text-center text-white" style="position: relative; margin-top: 0;">
+    <img src="{{ url_for('static', filename='images/hero.jpg') }}" 
+         alt="Food Supply Chain" 
+         class="img-fluid w-100" 
+         style="max-height: 500px; object-fit: cover;">
+
+    <div class="hero-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h1 class="fw-bold" style="color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.6);">
+            Revolutionizing Food Supply Chains with Blockchain Transparency
+        </h1>
+        <p class="mt-3 fs-5 text-light" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+            From farm to table, trace every step, ensure freshness, and build consumer trust.
+        </p>
+        <a href="/auth/login" class="btn btn-success mt-4 px-4">Get Started</a>
+    </div>
+</section>
+
+<!-- Blockchain Data Section -->
+<section class="py-5 bg-white">
+    <div class="container text-center">
+        <div class="card p-4 shadow-lg mx-auto" style="max-width: 600px;">
+            <h3 class="fw-semibold">Explore the Blockchain</h3>
+            <p class="text-muted mb-3">View the current status, blocks, and transactions on our network.</p>
+            <a href="{{ url_for('view_blockchain_data') }}" class="btn btn-outline-primary">View Blockchain Data</a>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold" style="color: var(--tech-blue);">Key Benefits</h2>
+        <div class="row mt-4 g-4">
+            {% set benefits = [
+                ('Enhanced Traceability', 'See every transaction—no more blind spots.'),
+                ('Reduced Waste', 'Optimize routing and storage to minimize spoilage.'),
+                ('Consumer Trust', 'Shoppers scan a QR code and see a tamper-proof history.'),
+                ('Secure Transactions', 'Blockchain ensures data integrity across stakeholders.')
+            ] %}
+            {% for title, desc in benefits %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 text-center p-4">
+                    <h4 class="fw-bold text-success">{{ title }}</h4>
+                    <p class="text-muted">{{ desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-5 bg-white">
+    <div class="container text-center">
+        <h2 class="fw-bold" style="color: var(--tech-blue);">How It Works</h2>
+        <div class="d-flex justify-content-center flex-wrap gap-4 mt-4">
+            {% for step in ['Farm', 'Processing', 'Distribution', 'Retail', 'Consumer'] %}
+                <div class="p-3 rounded bg-light shadow-sm" style="min-width: 120px;">
+                    <div class="display-6 text-primary mb-2">●</div>
+                    <h5 class="fw-semibold">{{ step }}</h5>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="#" class="btn btn-outline-secondary mt-4">Request a Demo</a>
+    </div>
+</section>
+{% endblock %}

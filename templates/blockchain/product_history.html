@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="text-center" style="color: var(--tech-blue);">Blockchain Explorer</h2>
+    <p class="text-center text-muted mb-4">A detailed view of all blocks and pending transactions on the network.</p>
+
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h3 class="card-title">Blockchain Network Status</h3>
+                <ul class="list-unstyled text-start mt-3">
+                    <li class="mb-2"><strong>Total Blocks:</strong> {{ total_blocks }}</li>
+                    <li class="mb-2"><strong>Total Transactions:</strong> {{ total_transactions }}</li>
+                    <li class="mb-2"><strong>Network Status:</strong> <span class="text-success">{{ network_status }}</span></li>
+                    <li class="mb-2"><strong>Last Block:</strong> {{ last_block_time|time_ago }}</li>
+                </ul>
+                <a href="{{ url_for('auth.blockchain_explorer') }}" class="btn btn-secondary mt-auto">View Full Blockchain</a>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h3 class="card-title">Pending Transactions</h3>
+                <p class="text-muted">Transactions waiting to be added to a new block.</p>
+                {% if pending_transactions %}
+                <ul class="list-group list-group-flush">
+                    {% for tx in pending_transactions %}
+                    <li class="list-group-item">
+                        <small><strong>Product ID:</strong> {{ tx.product_id }} | <strong>Status:</strong> {{ tx.status }}</small><br>
+                        <small><strong>From:</strong> {{ tx.sender }} <strong>To:</strong> {{ tx.recipient }}</small>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <div class="alert alert-light mt-3">No pending transactions at the moment.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-4">
+             <div class="card p-4 shadow-sm h-100">
+                <h3 class="card-title">Detailed Block Data</h3>
+                <p class="text-muted">Explore the transactions within each block.</p>
+                <div class="accordion accordion-flush" id="blockchainAccordion">
+                    {% for block in full_chain %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading{{ block.index }}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ block.index }}" aria-expanded="false" aria-controls="collapse{{ block.index }}">
+                                <strong>Block {{ block.index }}</strong>&nbsp;- Hash:&nbsp;<span class="text-truncate" style="max-width: 200px;">{{ block.hash }}</span>&nbsp;({{ block.transactions|length }} transactions)
+                            </button>
+                        </h2>
+                        <div id="collapse{{ block.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ block.index }}" data-bs-parent="#blockchainAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Timestamp:</strong> {{ block.timestamp|timestamp_to_datetime }}</p>
+                                <p><strong>Previous Hash:</strong> <small>{{ block.previous_hash }}</small></p>
+                                <p><strong>Current Hash:</strong> <small>{{ block.hash }}</small></p>
+                                <p><strong>Nonce (Proof):</strong> {{ block.proof }}</p>
+                                <h5 class="mt-3">Transactions:</h5>
+                                {% if block.transactions %}
+                                <ul class="list-group">
+                                    {% for tx in block.transactions %}
+                                        <li class="list-group-item">
+                                            <small><strong>Product ID:</strong> {{ tx.product_id }}</small><br>
+                                            <small><strong>Sender:</strong> {{ tx.sender }}</small><br>
+                                            <small><strong>Recipient:</strong> {{ tx.recipient }}</small><br>
+                                            <small><strong>Status:</strong> {{ tx.status }}</small>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                {% else %}
+                                <p>No transactions in this block.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-4">
+             <div class="card p-4 h-100 shadow-sm">
+                <h3 class="card-title">Chain Visualization</h3>
+                <p class="text-muted">A simplified, horizontal view of the blockchain.</p>
+                <div class="chain-viz-container mt-3">
+                    {% for block in full_chain %}
+                        <div class="block-box confirmed">
+                            <div class="block-header">
+                                {% if block.index == 0 %}Genesis{% else %}Block {{ block.index }}{% endif %}
+                            </div>
+                            <div class="block-body">{{ block.transactions | length }} Txs</div>
+                        </div>
+                        {% if not loop.last or pending_transactions %}
+                            <div class="arrow">→</div>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if pending_transactions %}
+                        <div class="block-box pending">
+                            <div class="block-header">Pending</div>
+                            <div class="block-body">{{ pending_transactions | length }} Txs</div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

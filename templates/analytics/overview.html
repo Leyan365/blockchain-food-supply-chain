@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% block title %}Analytics Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary">Supply Chain Analytics Dashboard</h2>
+        <span class="badge bg-secondary">Real-time Data</span>
+    </div>
+    
+    <!-- KPI Cards Section -->
+    <div class="row text-white">
+        <div class="col-md-4 mb-4">
+            <div class="card bg-success shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title">Total Products Tracked</h5>
+                    <h3 class="display-4">{{ kpis.total_products }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card bg-warning shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title">Detected Anomalies</h5>
+                    <h3 class="display-4">{{ kpis.total_anomalies }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card bg-info shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title">Avg. Journey Time (Hours)</h5>
+                    <h3 class="display-4">{{ kpis.avg_journey_hours|round(1) }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Tables Section -->
+    <div class="card my-5 shadow-sm">
+        <div class="card-header bg-danger text-white">
+            <h4>🚨 Temperature Anomaly Report</h4>
+        </div>
+        <div class="card-body">
+            {% if anomalies %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product ID</th>
+                            <th>Anomalous Temp (°C)</th>
+                            <th>Location</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for anomaly in anomalies %}
+                        <tr>
+                            <td>{{ anomaly.product_name }}</td>
+                            <td><code>{{ anomaly.product_id[:12] }}...</code></td>
+                            <td><span class="badge bg-danger fs-6">{{ anomaly.temperature }} °C</span></td>
+                            <td>{{ anomaly.location }}</td>
+                            <td>{{ anomaly.timestamp|timestamp_to_datetime }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="text-muted text-center p-3">✅ No temperature anomalies found. All shipments are within threshold.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="card my-5 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4>⏱️ Product Journey Time Analysis</h4>
+        </div>
+        <div class="card-body">
+             {% if journey_stats.details %}
+             <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product ID</th>
+                            <th>Total Journey Time (Hours)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in journey_stats.details %}
+                        <tr>
+                            <td>{{ item.product_name }}</td>
+                            <td><code>{{ item.product_id[:12] }}...</code></td>
+                            <td>{{ item.duration_hours|round(2) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+             </div>
+             {% else %}
+             <p class="text-muted text-center p-3">Not enough data to calculate journey times.</p>
+             {% endif %}
+        </div>
+    </div>
+    
+    <!-- Interactive Charts Section -->
+    <hr class="my-5">
+    <div class="text-center mb-5">
+        <h2>Interactive Visualizations</h2>
+        <p class="lead text-muted">Explore the supply chain data through interactive charts.</p>
+    </div>
+
+    <!-- Chart 1: Bar Chart -->
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <h4 class="text-secondary">Bar Chart: Average Temperature & Humidity</h4>
+            <div class="card shadow bg-light">
+                <div class="card-body">
+                    <div id="bar-chart" style="height: 500px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 2: Pie Chart -->
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <h4 class="text-secondary">Pie Chart: Transactions by Stakeholder</h4>
+            <div class="card shadow bg-light">
+                <div class="card-body">
+                    <div id="pie-chart" style="height: 500px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 3: Box Plot -->
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <h4 class="text-secondary">Box Plot: Delivery Time Distribution</h4>
+            <div class="card shadow bg-light">
+                <div class="card-body">
+                     <div id="box-plot" style="height: 500px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 4: Scatter Plot -->
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <h4 class="text-secondary">Scatter Plot: Temperature Readings Over Time</h4>
+            <div class="card shadow bg-light">
+                <div class="card-body">
+                    <div id="scatter-plot" style="height: 500px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Plotly JavaScript Library -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<!-- Script to render the charts -->
+<script>
+    // Use the 'tojson' filter to safely pass the JSON from Flask to JavaScript
+    const barChartData = {{ charts.bar_chart | tojson }};
+    const pieChartData = {{ charts.pie_chart | tojson }};
+    const boxPlotData = {{ charts.box_plot | tojson }};
+    const scatterPlotData = {{ charts.scatter_plot | tojson }};
+
+    // Render each chart in its respective div, if the data exists
+    if (barChartData) {
+        Plotly.newPlot('bar-chart', barChartData.data, barChartData.layout, {responsive: true});
+    }
+    if (pieChartData) {
+        Plotly.newPlot('pie-chart', pieChartData.data, pieChartData.layout, {responsive: true});
+    }
+    if (boxPlotData) {
+        Plotly.newPlot('box-plot', boxPlotData.data, boxPlotData.layout, {responsive: true});
+    }
+    if (scatterPlotData) {
+        Plotly.newPlot('scatter-plot', scatterPlotData.data, scatterPlotData.layout, {responsive: true});
+    }
+</script>
+
+{% endblock %}

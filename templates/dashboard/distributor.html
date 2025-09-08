@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}Distributor Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-info">Distributor Dashboard</h2>
+  <p class="lead">Welcome, {{ session['username'] }}!</p>
+
+  <div class="row text-white">
+    <div class="col-md-4 mb-3">
+      <div class="card bg-info shadow-sm">
+        <div class="card-body">
+          <h5>Incoming Shipments</h5>
+          <h3>{{ stats.incoming }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card bg-success shadow-sm">
+        <div class="card-body">
+          <h5>In-Transit</h5>
+          <h3>{{ stats.in_transit }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card bg-warning shadow-sm">
+        <div class="card-body">
+          <h5>Pending Transfers</h5>
+          <h3>{{ stats.pending }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card my-5">
+    <div class="card-header bg-info text-white">
+      Accept Shipment / Update Conditions
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/distributor/update_shipment">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="product_id" class="form-label">Product ID</label>
+            <select name="product_id" class="form-select" required>
+              <option value="">— Select Incoming —</option>
+              {% for p in incoming_list %}
+                <option value="{{ p.product_id }}">{{ p.product_id }} ({{ p.product_name }})</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="temperature" class="form-label">Temperature (°C)</label>
+            <input type="number" step="0.1" name="temperature" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label for="humidity" class="form-label">Humidity (%)</label>
+            <input type="number" step="0.1" name="humidity" class="form-control">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="transport_info" class="form-label">Transport Info</label>
+          <input type="text" name="transport_info" class="form-control" placeholder="e.g., Routed to warehouse">
+        </div>
+        <div class="mb-3">
+          <label for="next_recipient" class="form-label">Next Recipient</label>
+          <input type="text" name="next_recipient" class="form-control" placeholder="Retailer Email">
+        </div>
+        <button type="submit" class="btn btn-info">Submit Update</button>
+      </form>
+    </div>
+  </div>
+
+  <h4 class="mt-5 mb-3">My Shipments</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-info">
+        <tr>
+          <th>Product ID</th>
+          <th>Name</th>
+          <th>Sender</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Last Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in shipments %}
+        <tr>
+          <td>{{ p.id }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.sender }}</td>
+          <td>{{ p.location }}</td>
+          <td>{{ p.status }}</td>
+          <td>{{ p.last_updated }}</td>
+        </tr>
+        {% endfor %}
+        {% if shipments|length == 0 %}
+        <tr>
+          <td colspan="6" class="text-center text-muted">No shipments to display.</td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

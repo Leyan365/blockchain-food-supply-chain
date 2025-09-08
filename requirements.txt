@@ -1,0 +1,10 @@
+Flask
+Flask-Session
+Flask-WTF
+pycryptodome
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+scikit-learn

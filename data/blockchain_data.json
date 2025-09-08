@@ -1,0 +1,2744 @@
+{
+    "chain": [
+        {
+            "index": 0,
+            "timestamp": 1754661518.4334745,
+            "transactions": [],
+            "proof": 0,
+            "previous_hash": "0",
+            "hash": "1d4a0b0ca12dd2bd75934217bf3cc7c5367571b89e5038a0f4b26f317883c17f"
+        },
+        {
+            "index": 1,
+            "timestamp": 1754661518.4553401,
+            "transactions": [
+                {
+                    "id": "adf64d61-889f-4bdc-9a60-ce098f673f67",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "60135c3a-d7a0-438b-b070-13d303cd1a78",
+                    "product_name": "Organic Carrots",
+                    "location": "Coastal Fields, Matara",
+                    "temperature": 22.6,
+                    "humidity": 80.0,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754229518.453541
+                }
+            ],
+            "proof": 173,
+            "previous_hash": "1d4a0b0ca12dd2bd75934217bf3cc7c5367571b89e5038a0f4b26f317883c17f",
+            "hash": "006bc08e9098c8b38b4d025e6030eb4d396da57ba8fb00430fde7bf13e367a15"
+        },
+        {
+            "index": 2,
+            "timestamp": 1754661518.9707592,
+            "transactions": [
+                {
+                    "id": "9df8ca0e-1e98-4477-b61f-71495e622534",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661518.465401
+                },
+                {
+                    "id": "02757058-e5d6-46c2-afd5-faf918047de0",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "60135c3a-d7a0-438b-b070-13d303cd1a78",
+                    "product_name": "Organic Carrots",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 32.5,
+                    "humidity": 88.4,
+                    "transport_info": "Stored in refrigerated unit. ANOMALY DETECTED.",
+                    "status": "In Transit",
+                    "timestamp": 1754359118.453541
+                }
+            ],
+            "proof": 129,
+            "previous_hash": "006bc08e9098c8b38b4d025e6030eb4d396da57ba8fb00430fde7bf13e367a15",
+            "hash": "00e87778eddf1cf55b3902cc207f281beb4644075724c0b846b99310809ba31f"
+        },
+        {
+            "index": 3,
+            "timestamp": 1754661519.5018954,
+            "transactions": [
+                {
+                    "id": "8143cf4f-dd2a-4698-ac76-5cf30cc8a343",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661518.9743829
+                },
+                {
+                    "id": "4a354ed1-03eb-46ca-a7ac-c5f2b69fb08d",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "60135c3a-d7a0-438b-b070-13d303cd1a78",
+                    "product_name": "Organic Carrots",
+                    "location": "City Foods, Kandy",
+                    "temperature": 21.9,
+                    "humidity": 65.7,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754398718.453541
+                }
+            ],
+            "proof": 32,
+            "previous_hash": "00e87778eddf1cf55b3902cc207f281beb4644075724c0b846b99310809ba31f",
+            "hash": "00acf8e4d1021e52a4644580076a68ed98b5aa9466abcaf69dc420e284023b68"
+        },
+        {
+            "index": 4,
+            "timestamp": 1754661519.5359545,
+            "transactions": [
+                {
+                    "id": "378224ea-f631-4959-a6d1-799765db1afc",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661519.5045238
+                },
+                {
+                    "id": "7b4f466e-193d-4732-8667-4ee502e82db1",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "a621a2de-3fd6-42ac-b0c5-56da8bb99a35",
+                    "product_name": "Red Onions",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 22.1,
+                    "humidity": 81.7,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754056719.534252
+                }
+            ],
+            "proof": 172,
+            "previous_hash": "00acf8e4d1021e52a4644580076a68ed98b5aa9466abcaf69dc420e284023b68",
+            "hash": "0000b7833aa351188dda973a71e02e075f2b739c566f6570fecc39cfde3f9197"
+        },
+        {
+            "index": 5,
+            "timestamp": 1754661520.1016364,
+            "transactions": [
+                {
+                    "id": "9993ae76-6189-4b0e-a3ba-9a791a7941fe",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661519.5884829
+                },
+                {
+                    "id": "932d6650-d8f1-4ab3-9b36-7e17a889adc8",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "a621a2de-3fd6-42ac-b0c5-56da8bb99a35",
+                    "product_name": "Red Onions",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 15.7,
+                    "humidity": 86.8,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754175519.534252
+                }
+            ],
+            "proof": 1,
+            "previous_hash": "0000b7833aa351188dda973a71e02e075f2b739c566f6570fecc39cfde3f9197",
+            "hash": "008875b526a393d80f9abc76a2012d05c4482e2b03b4edcda0e0aacd65fad74f"
+        },
+        {
+            "index": 6,
+            "timestamp": 1754661520.6060593,
+            "transactions": [
+                {
+                    "id": "adc91afd-d468-4504-9eb3-73a14e62e28c",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661520.101832
+                },
+                {
+                    "id": "f6446c64-23b2-4364-beb8-948d0312ef79",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "a621a2de-3fd6-42ac-b0c5-56da8bb99a35",
+                    "product_name": "Red Onions",
+                    "location": "City Foods, Kandy",
+                    "temperature": 19.4,
+                    "humidity": 61.9,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754197119.534252
+                }
+            ],
+            "proof": 386,
+            "previous_hash": "008875b526a393d80f9abc76a2012d05c4482e2b03b4edcda0e0aacd65fad74f",
+            "hash": "003235c08e261d0360b96c04aab96e82a60c8fb036f596068e17b7664db5b3c9"
+        },
+        {
+            "index": 7,
+            "timestamp": 1754661520.623424,
+            "transactions": [
+                {
+                    "id": "a0c00c72-d5d2-45f7-9733-a4c4dd1f9889",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661520.6193194
+                },
+                {
+                    "id": "af402c6c-6932-4483-bcd2-33bd0a73eb10",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "be284c71-2aa1-4035-a901-100e86793b48",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Coastal Fields, Matara",
+                    "temperature": 24.8,
+                    "humidity": 82.1,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754056720.622639
+                }
+            ],
+            "proof": 202,
+            "previous_hash": "003235c08e261d0360b96c04aab96e82a60c8fb036f596068e17b7664db5b3c9",
+            "hash": "00ac4a682b31f1a7d034fed31b10d323835a36f7dc7fc98327c4d2b78b3f9fef"
+        },
+        {
+            "index": 8,
+            "timestamp": 1754661521.1340432,
+            "transactions": [
+                {
+                    "id": "d4e435e8-d228-4f91-994e-4c9d1d2d456e",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661520.6289632
+                },
+                {
+                    "id": "3341b96a-24b4-46dd-b390-81f7d33957e0",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "be284c71-2aa1-4035-a901-100e86793b48",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 13.5,
+                    "humidity": 84.1,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754261920.622639
+                }
+            ],
+            "proof": 34,
+            "previous_hash": "00ac4a682b31f1a7d034fed31b10d323835a36f7dc7fc98327c4d2b78b3f9fef",
+            "hash": "0066c3c4b7d7f1ba7a0d927e2bebeed173776778b7aa5b9e97029385aa721bad"
+        },
+        {
+            "index": 9,
+            "timestamp": 1754661521.6395874,
+            "transactions": [
+                {
+                    "id": "edbdcb47-d619-4278-a208-282f8bb93b25",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661521.135137
+                },
+                {
+                    "id": "1c7900fd-e120-422e-982f-1e635e77718f",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "be284c71-2aa1-4035-a901-100e86793b48",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "City Foods, Kandy",
+                    "temperature": 20.8,
+                    "humidity": 66.5,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754283520.622639
+                }
+            ],
+            "proof": 3,
+            "previous_hash": "0066c3c4b7d7f1ba7a0d927e2bebeed173776778b7aa5b9e97029385aa721bad",
+            "hash": "0086125ef970f71f2c5aa4691d1e5cf3289816505e0c8e053e260fabcdf0fe7f"
+        },
+        {
+            "index": 10,
+            "timestamp": 1754661521.6449301,
+            "transactions": [
+                {
+                    "id": "700905f2-82b1-4945-b97e-300a1386d673",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661521.6398826
+                },
+                {
+                    "id": "544221aa-db99-40dc-98b9-0a6e39293268",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "80227dcd-97eb-4a22-8056-217bbd808e3b",
+                    "product_name": "Organic Carrots",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 25.0,
+                    "humidity": 79.1,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753883921.644126
+                }
+            ],
+            "proof": 45,
+            "previous_hash": "0086125ef970f71f2c5aa4691d1e5cf3289816505e0c8e053e260fabcdf0fe7f",
+            "hash": "008e05edbf6ca389eb250f7b313ddaa476a7a105642bcf3bcb2007858d260d7f"
+        },
+        {
+            "index": 11,
+            "timestamp": 1754661522.2151585,
+            "transactions": [
+                {
+                    "id": "f32b2284-27b9-4395-a7a7-62ab2e036e12",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661521.646296
+                },
+                {
+                    "id": "f6e16d9e-f499-4076-928b-c363565ab210",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "80227dcd-97eb-4a22-8056-217bbd808e3b",
+                    "product_name": "Organic Carrots",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 15.4,
+                    "humidity": 89.1,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754092721.644126
+                }
+            ],
+            "proof": 464,
+            "previous_hash": "008e05edbf6ca389eb250f7b313ddaa476a7a105642bcf3bcb2007858d260d7f",
+            "hash": "001ffba7180c6e4d4e3036fd4deee4de27d85bf9e8fc49631dbf7014ec8f7b1c"
+        },
+        {
+            "index": 12,
+            "timestamp": 1754661522.739493,
+            "transactions": [
+                {
+                    "id": "7ad01850-f19c-4e99-9c1d-f66383bec4e3",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661522.2293253
+                },
+                {
+                    "id": "ac0af0d9-9883-4f7e-80fe-b7df100ac5b4",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "80227dcd-97eb-4a22-8056-217bbd808e3b",
+                    "product_name": "Organic Carrots",
+                    "location": "SuperGrocer, Galle",
+                    "temperature": 19.0,
+                    "humidity": 64.8,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754139521.644126
+                }
+            ],
+            "proof": 575,
+            "previous_hash": "001ffba7180c6e4d4e3036fd4deee4de27d85bf9e8fc49631dbf7014ec8f7b1c",
+            "hash": "00621327f02eeb083ac558d0b7caa4caea5dfa9da9c350df6f91549a7b5fd47f"
+        },
+        {
+            "index": 13,
+            "timestamp": 1754661522.7642891,
+            "transactions": [
+                {
+                    "id": "72dc47b7-a27e-4be5-8814-fe750515e778",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661522.759445
+                },
+                {
+                    "id": "a74ea425-195e-4254-bceb-59453c040dc8",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "eaf4d98e-9ea9-4478-93e0-5351ab97acaf",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 23.4,
+                    "humidity": 75.3,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753970322.763566
+                }
+            ],
+            "proof": 1334,
+            "previous_hash": "00621327f02eeb083ac558d0b7caa4caea5dfa9da9c350df6f91549a7b5fd47f",
+            "hash": "00b2c532b2ab4641fe64f11fb72f9d76859f0ba979b53fe1f6eebc64c99c8a72"
+        },
+        {
+            "index": 14,
+            "timestamp": 1754661523.3195057,
+            "transactions": [
+                {
+                    "id": "92b23060-6dce-4127-9f46-fba4fabfa543",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661522.8120604
+                },
+                {
+                    "id": "1f3800ad-8f2b-4d8d-bb0a-d7e417941f44",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "eaf4d98e-9ea9-4478-93e0-5351ab97acaf",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 33.5,
+                    "humidity": 88.3,
+                    "transport_info": "Stored in refrigerated unit. ANOMALY DETECTED.",
+                    "status": "In Transit",
+                    "timestamp": 1754071122.763566
+                }
+            ],
+            "proof": 104,
+            "previous_hash": "00b2c532b2ab4641fe64f11fb72f9d76859f0ba979b53fe1f6eebc64c99c8a72",
+            "hash": "002baf8661db9cbe48b00cfb445e8d24e22041d0bde3351912fe17028bb355ab"
+        },
+        {
+            "index": 15,
+            "timestamp": 1754661523.828279,
+            "transactions": [
+                {
+                    "id": "71e40a25-bcec-42ed-a2f2-cc3233eeb79d",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661523.3227923
+                },
+                {
+                    "id": "3f0e08a9-ae9d-465f-bcb9-19f1ecaee04a",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "eaf4d98e-9ea9-4478-93e0-5351ab97acaf",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 18.8,
+                    "humidity": 62.5,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754125122.763566
+                }
+            ],
+            "proof": 43,
+            "previous_hash": "002baf8661db9cbe48b00cfb445e8d24e22041d0bde3351912fe17028bb355ab",
+            "hash": "003bae32569ece94fb7b6af04128ac17aa9c406fa39238d6fea2d3c4773d102c"
+        },
+        {
+            "index": 16,
+            "timestamp": 1754661523.8355494,
+            "transactions": [
+                {
+                    "id": "aea8a31b-15b2-486c-ad56-3648de120d7b",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661523.8297048
+                },
+                {
+                    "id": "823dd32e-687f-4b8f-957b-8f97d4e2037d",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "d2f3317d-0bd5-41d9-a616-343f577a0587",
+                    "product_name": "Gotu Kola",
+                    "location": "Sun-Kissed Grove, Dambulla",
+                    "temperature": 24.0,
+                    "humidity": 81.9,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754143123.834721
+                }
+            ],
+            "proof": 231,
+            "previous_hash": "003bae32569ece94fb7b6af04128ac17aa9c406fa39238d6fea2d3c4773d102c",
+            "hash": "00e018e0aa40f5414d3fb79da70df4115982b0e1736d522a042bc73472b22903"
+        },
+        {
+            "index": 17,
+            "timestamp": 1754661524.3534381,
+            "transactions": [
+                {
+                    "id": "aa46e7d3-f0b2-4e73-9fc8-fd1b892fe972",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661523.841934
+                },
+                {
+                    "id": "40e616a9-2699-42d8-a057-6195e9e822b2",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "d2f3317d-0bd5-41d9-a616-343f577a0587",
+                    "product_name": "Gotu Kola",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 14.1,
+                    "humidity": 81.2,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754247523.834721
+                }
+            ],
+            "proof": 10,
+            "previous_hash": "00e018e0aa40f5414d3fb79da70df4115982b0e1736d522a042bc73472b22903",
+            "hash": "00666540a5c8f287bf420d0bb2ddbc887be18c9a0a8ba96102dad24396b64b34"
+        },
+        {
+            "index": 18,
+            "timestamp": 1754661524.8604712,
+            "transactions": [
+                {
+                    "id": "1e9e6f0a-2c38-4319-80d2-0cd64ccd60be",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661524.353893
+                },
+                {
+                    "id": "bcb13322-9829-44c6-b00c-7bbb6ad88f70",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "d2f3317d-0bd5-41d9-a616-343f577a0587",
+                    "product_name": "Gotu Kola",
+                    "location": "City Foods, Kandy",
+                    "temperature": 21.7,
+                    "humidity": 65.9,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754305123.834721
+                }
+            ],
+            "proof": 285,
+            "previous_hash": "00666540a5c8f287bf420d0bb2ddbc887be18c9a0a8ba96102dad24396b64b34",
+            "hash": "00f144b47b172178db329d3eaa1c3bd240788f0ff5a04955d9fe0b7f35a7f458"
+        },
+        {
+            "index": 19,
+            "timestamp": 1754661524.8761008,
+            "transactions": [
+                {
+                    "id": "aee05070-083e-4a11-bfbc-61fc59a79740",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661524.8701346
+                },
+                {
+                    "id": "7bc8a785-a8e8-4a6c-930b-cee97b816a85",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "e533ec0c-124a-4afb-8cdc-e1a858361da0",
+                    "product_name": "King Coconuts",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 25.2,
+                    "humidity": 77.6,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754229524.875195
+                }
+            ],
+            "proof": 642,
+            "previous_hash": "00f144b47b172178db329d3eaa1c3bd240788f0ff5a04955d9fe0b7f35a7f458",
+            "hash": "00d177105d3c1434b08f4cb5df1471d74a6dd0fb3d725229d87c582447805e75"
+        },
+        {
+            "index": 20,
+            "timestamp": 1754661525.4090078,
+            "transactions": [
+                {
+                    "id": "5b26d2e8-ce2e-4711-9d27-ca1188905b0e",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661524.899863
+                },
+                {
+                    "id": "8ebbd421-dffe-4678-bacb-e5c0e0d52b6c",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "e533ec0c-124a-4afb-8cdc-e1a858361da0",
+                    "product_name": "King Coconuts",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 15.9,
+                    "humidity": 83.1,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754499524.875195
+                }
+            ],
+            "proof": 45,
+            "previous_hash": "00d177105d3c1434b08f4cb5df1471d74a6dd0fb3d725229d87c582447805e75",
+            "hash": "006ceb1e86f6f770b003a14140e844ca0f575a50005b620f0c460c680c85525d"
+        },
+        {
+            "index": 21,
+            "timestamp": 1754661525.9170468,
+            "transactions": [
+                {
+                    "id": "0ea900ea-267a-4b69-9418-2eab43b07c0e",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661525.4103868
+                },
+                {
+                    "id": "d7f57f41-2ed3-4b25-bc4d-e5be0a3e1047",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "e533ec0c-124a-4afb-8cdc-e1a858361da0",
+                    "product_name": "King Coconuts",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 20.9,
+                    "humidity": 66.4,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754546324.875195
+                }
+            ],
+            "proof": 79,
+            "previous_hash": "006ceb1e86f6f770b003a14140e844ca0f575a50005b620f0c460c680c85525d",
+            "hash": "00c0c6d7746f71bb6359c5c85546f7d33d274b3aaac8bb73799c29a9bf6be0e1"
+        },
+        {
+            "index": 22,
+            "timestamp": 1754661525.9263694,
+            "transactions": [
+                {
+                    "id": "3bd48c98-4c2c-496d-92f4-87a474104a02",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661525.920103
+                },
+                {
+                    "id": "1d87d3f4-da8b-465e-b5fc-932c794c5a44",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "455e96b1-91b8-4ceb-95b0-03970955f51f",
+                    "product_name": "Gotu Kola",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 22.4,
+                    "humidity": 76.9,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753797525.926055
+                }
+            ],
+            "proof": 381,
+            "previous_hash": "00c0c6d7746f71bb6359c5c85546f7d33d274b3aaac8bb73799c29a9bf6be0e1",
+            "hash": "00867c700631a19be8f1a83e8efc036b6a3ad16c07a0bf942afe5907f53c468e"
+        },
+        {
+            "index": 23,
+            "timestamp": 1754661526.454199,
+            "transactions": [
+                {
+                    "id": "9a70b002-9684-4770-92b2-419f61b5569c",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661525.947299
+                },
+                {
+                    "id": "b10a3ee1-3745-4904-8caf-1a9f456f29fd",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "455e96b1-91b8-4ceb-95b0-03970955f51f",
+                    "product_name": "Gotu Kola",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 13.0,
+                    "humidity": 81.4,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754085525.926055
+                }
+            ],
+            "proof": 495,
+            "previous_hash": "00867c700631a19be8f1a83e8efc036b6a3ad16c07a0bf942afe5907f53c468e",
+            "hash": "00f4adb18407179e6f3a74787f67650d5e1565d784d8852392fa32e92712f6ed"
+        },
+        {
+            "index": 24,
+            "timestamp": 1754661526.97507,
+            "transactions": [
+                {
+                    "id": "f44778b1-7b7b-4d22-9267-d343b85f78ac",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661526.46757
+                },
+                {
+                    "id": "7cb7bfa9-2311-4673-ac24-f6367c2c773b",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "455e96b1-91b8-4ceb-95b0-03970955f51f",
+                    "product_name": "Gotu Kola",
+                    "location": "City Foods, Kandy",
+                    "temperature": 21.6,
+                    "humidity": 65.7,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754110725.926055
+                }
+            ],
+            "proof": 156,
+            "previous_hash": "00f4adb18407179e6f3a74787f67650d5e1565d784d8852392fa32e92712f6ed",
+            "hash": "00bf3b30b279e48f7f446836d1477076a6c9242376fec6a3a414732ba9775640"
+        },
+        {
+            "index": 25,
+            "timestamp": 1754661526.9864612,
+            "transactions": [
+                {
+                    "id": "4cfd34c9-624b-4377-848a-6f2271273c70",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661526.9797585
+                },
+                {
+                    "id": "46208903-3c05-4fd3-8581-2ac22f96ef8d",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "30560902-7871-4058-bc36-170b9f952599",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 24.9,
+                    "humidity": 79.8,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753797526.985711
+                }
+            ],
+            "proof": 53,
+            "previous_hash": "00bf3b30b279e48f7f446836d1477076a6c9242376fec6a3a414732ba9775640",
+            "hash": "00b02c4bdfe6b530167af4457adbcba41ec74d17ab794d22f6dfea431de62291"
+        },
+        {
+            "index": 26,
+            "timestamp": 1754661527.502979,
+            "transactions": [
+                {
+                    "id": "22d810d7-0865-4f8d-b597-95ab21ed0337",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661526.9880338
+                },
+                {
+                    "id": "3078b257-e88a-4b99-aaa1-280f612256b7",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "30560902-7871-4058-bc36-170b9f952599",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 32.0,
+                    "humidity": 81.6,
+                    "transport_info": "Stored in refrigerated unit. ANOMALY DETECTED.",
+                    "status": "In Transit",
+                    "timestamp": 1753970326.985711
+                }
+            ],
+            "proof": 925,
+            "previous_hash": "00b02c4bdfe6b530167af4457adbcba41ec74d17ab794d22f6dfea431de62291",
+            "hash": "00f77fe9123a3bf1a0be5100df4272f9bc2d432d9406c7bbfc61ec0fda14c366"
+        },
+        {
+            "index": 27,
+            "timestamp": 1754661528.045923,
+            "transactions": [
+                {
+                    "id": "c615ab00-cff7-4f95-8429-93d659bb5206",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661527.5356543
+                },
+                {
+                    "id": "fb7a76b5-4604-469d-b719-e0040bca5532",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "30560902-7871-4058-bc36-170b9f952599",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "SuperGrocer, Galle",
+                    "temperature": 20.7,
+                    "humidity": 67.7,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1753999126.985711
+                }
+            ],
+            "proof": 664,
+            "previous_hash": "00f77fe9123a3bf1a0be5100df4272f9bc2d432d9406c7bbfc61ec0fda14c366",
+            "hash": "0027b866e4751913f73d6293acf3ba7122a3559915041682dea985bfa15c1caa"
+        },
+        {
+            "index": 28,
+            "timestamp": 1754661528.086663,
+            "transactions": [
+                {
+                    "id": "592bcffd-92e4-4c76-9e44-ea0833a941d9",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661528.0764244
+                },
+                {
+                    "id": "77f47b70-d877-416d-8329-b8fb9fe57f4a",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "e08c5ac2-e3da-4db4-bf02-94ab9229c6cc",
+                    "product_name": "Red Onions",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 23.1,
+                    "humidity": 80.4,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754056728.08576
+                }
+            ],
+            "proof": 82,
+            "previous_hash": "0027b866e4751913f73d6293acf3ba7122a3559915041682dea985bfa15c1caa",
+            "hash": "00e443ff404f10c4f1a200d641a6b4b028118a4a297ab876b410b2bc595d97e0"
+        },
+        {
+            "index": 29,
+            "timestamp": 1754661528.636419,
+            "transactions": [
+                {
+                    "id": "e7bad2aa-e81e-4362-92f9-3a6873e721e0",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661528.0981748
+                },
+                {
+                    "id": "f14e3d71-c4de-4d00-88d7-96372d4a82e0",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "e08c5ac2-e3da-4db4-bf02-94ab9229c6cc",
+                    "product_name": "Red Onions",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 13.8,
+                    "humidity": 83.8,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754337528.08576
+                }
+            ],
+            "proof": 55,
+            "previous_hash": "00e443ff404f10c4f1a200d641a6b4b028118a4a297ab876b410b2bc595d97e0",
+            "hash": "006feec6f44e6563cd915844cc5fe4d318702180c4d8306f40cdba5ff7499c9f"
+        },
+        {
+            "index": 30,
+            "timestamp": 1754661529.1657617,
+            "transactions": [
+                {
+                    "id": "c9bf35e0-c9bd-4bc0-b572-1b349d979a15",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661528.6412058
+                },
+                {
+                    "id": "e7ee7533-3e60-4e97-a197-c084f0ceac4d",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "e08c5ac2-e3da-4db4-bf02-94ab9229c6cc",
+                    "product_name": "Red Onions",
+                    "location": "City Foods, Kandy",
+                    "temperature": 18.0,
+                    "humidity": 62.5,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754380728.08576
+                }
+            ],
+            "proof": 280,
+            "previous_hash": "006feec6f44e6563cd915844cc5fe4d318702180c4d8306f40cdba5ff7499c9f",
+            "hash": "00f9fbd764e2d5b1173795433c48550c4b7058e3218093226c1f36b3a5922e3d"
+        },
+        {
+            "index": 31,
+            "timestamp": 1754661529.2007027,
+            "transactions": [
+                {
+                    "id": "7774b763-0f54-445d-977e-7804f42bd5fe",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661529.1837683
+                },
+                {
+                    "id": "892f7ad1-7d69-4d22-8107-4f545d2d4aad",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "7d8580eb-a7f1-492a-a038-22eb8c3ce2c5",
+                    "product_name": "Red Onions",
+                    "location": "Coastal Fields, Matara",
+                    "temperature": 22.9,
+                    "humidity": 84.8,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753883929.199873
+                }
+            ],
+            "proof": 284,
+            "previous_hash": "00f9fbd764e2d5b1173795433c48550c4b7058e3218093226c1f36b3a5922e3d",
+            "hash": "00a64f5ab78eb95fd186dbf264f9502b05b72192c1c2baa86edf27a2ab95f124"
+        },
+        {
+            "index": 32,
+            "timestamp": 1754661529.7379434,
+            "transactions": [
+                {
+                    "id": "af53a5b2-e9ba-4d4c-a682-06117099d5c6",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661529.2166994
+                },
+                {
+                    "id": "200c0de4-be7f-4278-aeb3-7399faa8d8c0",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "7d8580eb-a7f1-492a-a038-22eb8c3ce2c5",
+                    "product_name": "Red Onions",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 14.3,
+                    "humidity": 86.8,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754179129.199873
+                }
+            ],
+            "proof": 314,
+            "previous_hash": "00a64f5ab78eb95fd186dbf264f9502b05b72192c1c2baa86edf27a2ab95f124",
+            "hash": "0025c3254cbc1e4bd4c3a4ed134ae90ed4ad73e6b83220bbc0baf6c9b77b88f5"
+        },
+        {
+            "index": 33,
+            "timestamp": 1754661530.2653692,
+            "transactions": [
+                {
+                    "id": "0215c77a-4ca2-4a5f-b7fd-d9ace44469ec",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661529.7518196
+                },
+                {
+                    "id": "fd915e4a-5e33-4db3-8f26-ad724cbde90a",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "7d8580eb-a7f1-492a-a038-22eb8c3ce2c5",
+                    "product_name": "Red Onions",
+                    "location": "SuperGrocer, Galle",
+                    "temperature": 21.7,
+                    "humidity": 67.5,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754225929.199873
+                }
+            ],
+            "proof": 46,
+            "previous_hash": "0025c3254cbc1e4bd4c3a4ed134ae90ed4ad73e6b83220bbc0baf6c9b77b88f5",
+            "hash": "00093f197452ec90aa1908c7ce56c8892cd6707d3e586c995f5840a96a45ce93"
+        },
+        {
+            "index": 34,
+            "timestamp": 1754661530.276104,
+            "transactions": [
+                {
+                    "id": "a3e5c38e-0b07-450d-90f4-1b4621433855",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661530.2670765
+                },
+                {
+                    "id": "9576d701-eff8-4208-a6e9-8037c5dc10da",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "66dabab6-74d6-48f2-b232-cd4da6195275",
+                    "product_name": "King Coconuts",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 25.2,
+                    "humidity": 82.1,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754229530.274974
+                }
+            ],
+            "proof": 815,
+            "previous_hash": "00093f197452ec90aa1908c7ce56c8892cd6707d3e586c995f5840a96a45ce93",
+            "hash": "002305ecf8d2012ee112efc2d5a4a00f903b946f00257eb807d1c65ccbb9ff22"
+        },
+        {
+            "index": 35,
+            "timestamp": 1754661530.8344526,
+            "transactions": [
+                {
+                    "id": "d7176fe5-42c3-4c25-956f-1989f6f401ab",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661530.3183665
+                },
+                {
+                    "id": "465ebdc7-7137-475c-af0d-e5062d204126",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "66dabab6-74d6-48f2-b232-cd4da6195275",
+                    "product_name": "King Coconuts",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 14.5,
+                    "humidity": 84.5,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754431130.274974
+                }
+            ],
+            "proof": 967,
+            "previous_hash": "002305ecf8d2012ee112efc2d5a4a00f903b946f00257eb807d1c65ccbb9ff22",
+            "hash": "0084ef3fb5150991763acbc8f2c3fbe555840ba6cdc9c31245e0ab665e79283d"
+        },
+        {
+            "index": 36,
+            "timestamp": 1754661531.416587,
+            "transactions": [
+                {
+                    "id": "544fb439-0bd2-4ca4-ac20-5d7754bd65f9",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661530.899121
+                },
+                {
+                    "id": "48035a1b-8af4-4db8-a24e-3d69ebd544c7",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "66dabab6-74d6-48f2-b232-cd4da6195275",
+                    "product_name": "King Coconuts",
+                    "location": "SuperGrocer, Galle",
+                    "temperature": 21.9,
+                    "humidity": 61.4,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754492330.274974
+                }
+            ],
+            "proof": 257,
+            "previous_hash": "0084ef3fb5150991763acbc8f2c3fbe555840ba6cdc9c31245e0ab665e79283d",
+            "hash": "00ae7e4108614cef31248dd6b340b95ec9b3d27ee04fbb938c54e8cd0b2455ee"
+        },
+        {
+            "index": 37,
+            "timestamp": 1754661531.462393,
+            "transactions": [
+                {
+                    "id": "c6c15577-42f7-4268-947a-e627a84dd1d6",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661531.4348295
+                },
+                {
+                    "id": "5d4e03a6-4e90-4405-b2c6-c46458fb3f80",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "89cd5cdd-04b3-4ba9-b407-c8c08b9b2e7c",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 22.5,
+                    "humidity": 79.6,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753970331.454079
+                }
+            ],
+            "proof": 55,
+            "previous_hash": "00ae7e4108614cef31248dd6b340b95ec9b3d27ee04fbb938c54e8cd0b2455ee",
+            "hash": "00b26d8baaa97b7d3d34c2892e8d5580b310cfd8d6d69883340d3cd4cbdc3a4e"
+        },
+        {
+            "index": 38,
+            "timestamp": 1754661531.982313,
+            "transactions": [
+                {
+                    "id": "45e77ad6-6a2c-4509-ad4a-582fa101a879",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661531.4644036
+                },
+                {
+                    "id": "41811e69-05ab-413b-bfcc-6e53ae68bd57",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "89cd5cdd-04b3-4ba9-b407-c8c08b9b2e7c",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 30.7,
+                    "humidity": 81.5,
+                    "transport_info": "Stored in refrigerated unit. ANOMALY DETECTED.",
+                    "status": "In Transit",
+                    "timestamp": 1754071131.454079
+                }
+            ],
+            "proof": 1205,
+            "previous_hash": "00b26d8baaa97b7d3d34c2892e8d5580b310cfd8d6d69883340d3cd4cbdc3a4e",
+            "hash": "0021585f23e8e189a9146e61cd72625e4c7c8303567b31bca0eaf61978cb0d5b"
+        },
+        {
+            "index": 39,
+            "timestamp": 1754661532.5283136,
+            "transactions": [
+                {
+                    "id": "c56fc00d-9296-42ef-a30e-07aac2439e7b",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661532.0178826
+                },
+                {
+                    "id": "2334f448-71e4-4e4f-a871-bad7b77b10be",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "89cd5cdd-04b3-4ba9-b407-c8c08b9b2e7c",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "City Foods, Kandy",
+                    "temperature": 18.8,
+                    "humidity": 64.3,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754128731.454079
+                }
+            ],
+            "proof": 278,
+            "previous_hash": "0021585f23e8e189a9146e61cd72625e4c7c8303567b31bca0eaf61978cb0d5b",
+            "hash": "00428a972c3629ed2d1324db3d361033ac6fef252a0ec1b72f1950b3418200ae"
+        },
+        {
+            "index": 40,
+            "timestamp": 1754661532.549592,
+            "transactions": [
+                {
+                    "id": "6e4b0d00-d938-43d3-b557-ace8d058af75",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661532.539742
+                },
+                {
+                    "id": "ebed3f0d-252b-4bdb-a4e2-f1a1372c5fb0",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "3f12a657-0272-4ab3-816c-d391d9b24340",
+                    "product_name": "King Coconuts",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 24.3,
+                    "humidity": 78.9,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754143132.548836
+                }
+            ],
+            "proof": 265,
+            "previous_hash": "00428a972c3629ed2d1324db3d361033ac6fef252a0ec1b72f1950b3418200ae",
+            "hash": "00d9892bf9442f31a569c6dfb624451efd89d71a1f6a0fdfce1a2d17b662a3f2"
+        },
+        {
+            "index": 41,
+            "timestamp": 1754661533.0861502,
+            "transactions": [
+                {
+                    "id": "294ef821-68bd-4ffe-a535-1bef96714d3d",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661532.5567648
+                },
+                {
+                    "id": "5252f71f-bd58-425f-8360-1a8f5c3c330f",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "3f12a657-0272-4ab3-816c-d391d9b24340",
+                    "product_name": "King Coconuts",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 15.1,
+                    "humidity": 86.2,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754251132.548836
+                }
+            ],
+            "proof": 161,
+            "previous_hash": "00d9892bf9442f31a569c6dfb624451efd89d71a1f6a0fdfce1a2d17b662a3f2",
+            "hash": "00ef6a12b44096857db59f00f2f3dcc34de81113d4037b32d63ead99ea112065"
+        },
+        {
+            "index": 42,
+            "timestamp": 1754661533.6040645,
+            "transactions": [
+                {
+                    "id": "fd3bf4a6-e428-41f7-90bf-c5b7682a7513",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661533.092108
+                },
+                {
+                    "id": "a2c02006-5af3-43c4-bf9b-644c4fcf3a62",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "3f12a657-0272-4ab3-816c-d391d9b24340",
+                    "product_name": "King Coconuts",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 20.2,
+                    "humidity": 62.3,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754290732.548836
+                }
+            ],
+            "proof": 51,
+            "previous_hash": "00ef6a12b44096857db59f00f2f3dcc34de81113d4037b32d63ead99ea112065",
+            "hash": "001a2ec4483fdf594f91a84c71061a70258e8c28c3b9f0b55cd93c360ca7973a"
+        },
+        {
+            "index": 43,
+            "timestamp": 1754661533.616095,
+            "transactions": [
+                {
+                    "id": "216296b0-0337-4f41-9e7b-ab2d0aa1d1b4",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661533.6064944
+                },
+                {
+                    "id": "51f4d0c7-3b14-40aa-9415-e5bca57f0407",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "a8bc0a4a-4f8f-4f3d-acbc-a58ccf6a0fac",
+                    "product_name": "King Coconuts",
+                    "location": "Sun-Kissed Grove, Dambulla",
+                    "temperature": 25.0,
+                    "humidity": 77.4,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754143133.61532
+                }
+            ],
+            "proof": 22,
+            "previous_hash": "001a2ec4483fdf594f91a84c71061a70258e8c28c3b9f0b55cd93c360ca7973a",
+            "hash": "00540e07501574c41e608681252a4bf1ccc8492b6a07a4e0339f652f16238f97"
+        },
+        {
+            "index": 44,
+            "timestamp": 1754661534.1277673,
+            "transactions": [
+                {
+                    "id": "7759d599-0b3c-4c99-bbc1-39f1f3ce591a",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661533.6168578
+                },
+                {
+                    "id": "5c8c4fed-9fce-4ef3-9042-226f39e00ef9",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "a8bc0a4a-4f8f-4f3d-acbc-a58ccf6a0fac",
+                    "product_name": "King Coconuts",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 13.5,
+                    "humidity": 89.2,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754258333.61532
+                }
+            ],
+            "proof": 144,
+            "previous_hash": "00540e07501574c41e608681252a4bf1ccc8492b6a07a4e0339f652f16238f97",
+            "hash": "002158ca92e880fd8009e3bd700c0406f7c131d28bd165a2008d982ac96d9c46"
+        },
+        {
+            "index": 45,
+            "timestamp": 1754661534.6414595,
+            "transactions": [
+                {
+                    "id": "b8526dcf-a103-4286-8896-2fc7f2211601",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661534.1317382
+                },
+                {
+                    "id": "23bb3c8e-b21e-4d72-ace3-c07c54090f1a",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "a8bc0a4a-4f8f-4f3d-acbc-a58ccf6a0fac",
+                    "product_name": "King Coconuts",
+                    "location": "City Foods, Kandy",
+                    "temperature": 20.0,
+                    "humidity": 64.0,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754319533.61532
+                }
+            ],
+            "proof": 277,
+            "previous_hash": "002158ca92e880fd8009e3bd700c0406f7c131d28bd165a2008d982ac96d9c46",
+            "hash": "005e186281234ada45251d817cafdbf3300205f0c0c840b277f0d00fe34bd6c3"
+        },
+        {
+            "index": 46,
+            "timestamp": 1754661534.660815,
+            "transactions": [
+                {
+                    "id": "9e5cf6bb-f2b5-4641-b6f7-26f0f2c895ed",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661534.6507897
+                },
+                {
+                    "id": "cab6478a-2571-42f3-8151-f149b3552c74",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "93132f01-ea74-4785-a4b0-58c5c4ea99ac",
+                    "product_name": "King Coconuts",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 24.4,
+                    "humidity": 81.7,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753970334.660069
+                }
+            ],
+            "proof": 65,
+            "previous_hash": "005e186281234ada45251d817cafdbf3300205f0c0c840b277f0d00fe34bd6c3",
+            "hash": "00cc08a351bca1a2aa9c7f9076ce5242509f5f52202ada1fb84124cd2ad9e356"
+        },
+        {
+            "index": 47,
+            "timestamp": 1754661535.1777499,
+            "transactions": [
+                {
+                    "id": "3857b5e8-8e79-418e-9504-b8a70130e4ad",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661534.66275
+                },
+                {
+                    "id": "0d6c5bf9-8dc1-4cc9-a5dc-7bf9d2ccfb7f",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "93132f01-ea74-4785-a4b0-58c5c4ea99ac",
+                    "product_name": "King Coconuts",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 13.5,
+                    "humidity": 83.2,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754182734.660069
+                }
+            ],
+            "proof": 167,
+            "previous_hash": "00cc08a351bca1a2aa9c7f9076ce5242509f5f52202ada1fb84124cd2ad9e356",
+            "hash": "0052aa1ade116f6ba115db7918d9b67ea291864ddc1eb914645fb116563b877e"
+        },
+        {
+            "index": 48,
+            "timestamp": 1754661535.6979206,
+            "transactions": [
+                {
+                    "id": "367ab669-5964-4394-b4eb-5279514dff5a",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661535.1822848
+                },
+                {
+                    "id": "0fb93bb3-c9c8-4916-922a-f72648bf1227",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "93132f01-ea74-4785-a4b0-58c5c4ea99ac",
+                    "product_name": "King Coconuts",
+                    "location": "SuperGrocer, Galle",
+                    "temperature": 20.1,
+                    "humidity": 62.7,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754243934.660069
+                }
+            ],
+            "proof": 2,
+            "previous_hash": "0052aa1ade116f6ba115db7918d9b67ea291864ddc1eb914645fb116563b877e",
+            "hash": "00acfadd31235ecfbfb10f9fd82338171e2a9bf054b52fc7f34dd02ef1ce3545"
+        },
+        {
+            "index": 49,
+            "timestamp": 1754661535.7089634,
+            "transactions": [
+                {
+                    "id": "80bf0ced-d9dc-4ba0-b931-a2482c035fa8",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661535.6981688
+                },
+                {
+                    "id": "a037cafd-8d88-4f89-b947-f2d4cbad9e2f",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "e12936d6-6422-49b7-a784-d92084c461ac",
+                    "product_name": "Organic Carrots",
+                    "location": "Sun-Kissed Grove, Dambulla",
+                    "temperature": 23.1,
+                    "humidity": 81.4,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754229535.708147
+                }
+            ],
+            "proof": 173,
+            "previous_hash": "00acfadd31235ecfbfb10f9fd82338171e2a9bf054b52fc7f34dd02ef1ce3545",
+            "hash": "00bd48743cffb6ff4c10436f3ce2f33c5eab75534bf8867b051fb949caf2ba3b"
+        },
+        {
+            "index": 50,
+            "timestamp": 1754661536.2619252,
+            "transactions": [
+                {
+                    "id": "085c0e46-9574-4163-a6e8-80ebbf977f42",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661535.7154984
+                },
+                {
+                    "id": "93014162-6f84-4eb5-9550-757b19950dbd",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "e12936d6-6422-49b7-a784-d92084c461ac",
+                    "product_name": "Organic Carrots",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 34.5,
+                    "humidity": 85.0,
+                    "transport_info": "Stored in refrigerated unit. ANOMALY DETECTED.",
+                    "status": "In Transit",
+                    "timestamp": 1754416735.708147
+                }
+            ],
+            "proof": 144,
+            "previous_hash": "00bd48743cffb6ff4c10436f3ce2f33c5eab75534bf8867b051fb949caf2ba3b",
+            "hash": "00831161c8778eadc0b6b5b2cbea5cba2070f7ab4ac8ac7d6db443ccc93887bb"
+        },
+        {
+            "index": 51,
+            "timestamp": 1754661536.7765977,
+            "transactions": [
+                {
+                    "id": "22e22c1b-31ad-4b25-bf19-35ea8e6955bf",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661536.2658532
+                },
+                {
+                    "id": "4301849d-745c-4616-97d5-6f861b8c7c05",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "e12936d6-6422-49b7-a784-d92084c461ac",
+                    "product_name": "Organic Carrots",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 19.6,
+                    "humidity": 65.5,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754438335.708147
+                }
+            ],
+            "proof": 142,
+            "previous_hash": "00831161c8778eadc0b6b5b2cbea5cba2070f7ab4ac8ac7d6db443ccc93887bb",
+            "hash": "00791a6351169915bab718f564e9a907ba69b99c3eda85ccc678a0485bceff5b"
+        },
+        {
+            "index": 52,
+            "timestamp": 1754661536.7931917,
+            "transactions": [
+                {
+                    "id": "cd917ebc-caef-4308-8d72-042d7253992b",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661536.7818792
+                },
+                {
+                    "id": "391fdc4c-ba3b-4819-9701-519b536dc3db",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "cb95b2e1-48f4-418e-aba9-a2a0db11fdc2",
+                    "product_name": "Organic Carrots",
+                    "location": "Sun-Kissed Grove, Dambulla",
+                    "temperature": 22.8,
+                    "humidity": 79.7,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754143136.792423
+                }
+            ],
+            "proof": 707,
+            "previous_hash": "00791a6351169915bab718f564e9a907ba69b99c3eda85ccc678a0485bceff5b",
+            "hash": "00911a51a53b5e2c49d6c0e41f4510907c096ff7595cd84c71a9f3db78c29b8d"
+        },
+        {
+            "index": 53,
+            "timestamp": 1754661537.640046,
+            "transactions": [
+                {
+                    "id": "5384de8c-7271-41a9-abab-01ea1ba461b2",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661537.070375
+                },
+                {
+                    "id": "ad1dcc9a-0c14-40de-b933-cbb2b3dd4c43",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "cb95b2e1-48f4-418e-aba9-a2a0db11fdc2",
+                    "product_name": "Organic Carrots",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 15.7,
+                    "humidity": 88.0,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754402336.792423
+                }
+            ],
+            "proof": 9,
+            "previous_hash": "00911a51a53b5e2c49d6c0e41f4510907c096ff7595cd84c71a9f3db78c29b8d",
+            "hash": "005df5c155fcde49ce1d40532b6c95043a213b1653958a2f66e2724391bb0426"
+        },
+        {
+            "index": 54,
+            "timestamp": 1754661538.1522,
+            "transactions": [
+                {
+                    "id": "63ef9b5e-d449-4538-9db7-1f4c250a4b2c",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661537.6405284
+                },
+                {
+                    "id": "05c55120-7fe0-4bfe-a83e-c7078f2edd22",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "cb95b2e1-48f4-418e-aba9-a2a0db11fdc2",
+                    "product_name": "Organic Carrots",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 21.2,
+                    "humidity": 65.9,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754431136.792423
+                }
+            ],
+            "proof": 70,
+            "previous_hash": "005df5c155fcde49ce1d40532b6c95043a213b1653958a2f66e2724391bb0426",
+            "hash": "00f613fba467a2be91eb26ab2a37b431f0c9a68f96188cf704d6439313390f51"
+        },
+        {
+            "index": 55,
+            "timestamp": 1754661538.166444,
+            "transactions": [
+                {
+                    "id": "7e3b6ecb-a3c1-4b86-b129-363bf0c37322",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661538.155035
+                },
+                {
+                    "id": "63d8ef9d-989f-4a1f-9c26-f473e5d1e837",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "350babb0-1f1c-4a3a-aeea-70c1e26feaa0",
+                    "product_name": "King Coconuts",
+                    "location": "Coastal Fields, Matara",
+                    "temperature": 23.0,
+                    "humidity": 83.3,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753883938.165673
+                }
+            ],
+            "proof": 133,
+            "previous_hash": "00f613fba467a2be91eb26ab2a37b431f0c9a68f96188cf704d6439313390f51",
+            "hash": "00eb214eb62ef6e18d0ad6f78128c6ab4be074362d5eff6f3013075001a4f18d"
+        },
+        {
+            "index": 56,
+            "timestamp": 1754661538.6829135,
+            "transactions": [
+                {
+                    "id": "9268439e-5502-4e8e-b606-0533ef3c83bb",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661538.1702244
+                },
+                {
+                    "id": "74582af4-a1c0-4d71-a4b3-242cf145c25a",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "350babb0-1f1c-4a3a-aeea-70c1e26feaa0",
+                    "product_name": "King Coconuts",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 12.7,
+                    "humidity": 84.8,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1753984738.165673
+                }
+            ],
+            "proof": 101,
+            "previous_hash": "00eb214eb62ef6e18d0ad6f78128c6ab4be074362d5eff6f3013075001a4f18d",
+            "hash": "00e472007c8ce6320be27a7f51afdf6172de195de4a5199ed6dbdd0ed4eb0f76"
+        },
+        {
+            "index": 57,
+            "timestamp": 1754661539.1972938,
+            "transactions": [
+                {
+                    "id": "b1a9d022-6234-4163-9a7c-46d8a4446b92",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661538.6857355
+                },
+                {
+                    "id": "fb392890-73f1-456c-b2e1-d8a88aac4246",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "350babb0-1f1c-4a3a-aeea-70c1e26feaa0",
+                    "product_name": "King Coconuts",
+                    "location": "SuperGrocer, Galle",
+                    "temperature": 21.3,
+                    "humidity": 69.2,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754009938.165673
+                }
+            ],
+            "proof": 124,
+            "previous_hash": "00e472007c8ce6320be27a7f51afdf6172de195de4a5199ed6dbdd0ed4eb0f76",
+            "hash": "00a1fe1fe5d7981843831adc8e78f98dc7c4c08870b97f25b5b4e79eeccba35b"
+        },
+        {
+            "index": 58,
+            "timestamp": 1754661539.213549,
+            "transactions": [
+                {
+                    "id": "5ed2fbba-bc7c-4544-9b8d-2f073a8991ae",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661539.2016194
+                },
+                {
+                    "id": "6886d1ed-8c10-4c98-855c-6f671fd11d0a",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "7f260d3b-d6b7-4cfa-bc44-b722e5528021",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Sun-Kissed Grove, Dambulla",
+                    "temperature": 24.7,
+                    "humidity": 80.4,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753883939.212647
+                }
+            ],
+            "proof": 214,
+            "previous_hash": "00a1fe1fe5d7981843831adc8e78f98dc7c4c08870b97f25b5b4e79eeccba35b",
+            "hash": "007bd9f3993b4f043ca65060f2820af09b86a88c8ca1993e54bd78e4d660a503"
+        },
+        {
+            "index": 59,
+            "timestamp": 1754661539.7374716,
+            "transactions": [
+                {
+                    "id": "60ac215f-3417-4685-b822-ba32c1aab52d",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661539.219281
+                },
+                {
+                    "id": "ff2c0ead-4892-4ea1-bb4a-9a02ff773c94",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "7f260d3b-d6b7-4cfa-bc44-b722e5528021",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 15.7,
+                    "humidity": 83.4,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754078339.212647
+                }
+            ],
+            "proof": 241,
+            "previous_hash": "007bd9f3993b4f043ca65060f2820af09b86a88c8ca1993e54bd78e4d660a503",
+            "hash": "001f1e5e95cd2ca588e78016d38858a60673cd4ab84a42ea27655e0b3cb2498c"
+        },
+        {
+            "index": 60,
+            "timestamp": 1754661540.2567177,
+            "transactions": [
+                {
+                    "id": "a1cd3eaf-700e-4002-9ca5-b452aca401c3",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661539.7440572
+                },
+                {
+                    "id": "47807882-a811-438e-816e-45ebea3ff650",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "7f260d3b-d6b7-4cfa-bc44-b722e5528021",
+                    "product_name": "Hill Country Tomatoes",
+                    "location": "SuperGrocer, Galle",
+                    "temperature": 18.2,
+                    "humidity": 69.8,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754110739.212647
+                }
+            ],
+            "proof": 100,
+            "previous_hash": "001f1e5e95cd2ca588e78016d38858a60673cd4ab84a42ea27655e0b3cb2498c",
+            "hash": "00993660ebf50d71379fc9dfcd823489c8bbe207620c4ddd33950a4eca462560"
+        },
+        {
+            "index": 61,
+            "timestamp": 1754661540.273078,
+            "transactions": [
+                {
+                    "id": "3d616abc-9e0e-4cf3-84e5-e5b59d3ff297",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661540.2602665
+                },
+                {
+                    "id": "4d99d948-24df-42f4-b66d-d4851ea63dfd",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "5209af17-7217-448e-ab1d-23a3223fbf28",
+                    "product_name": "Red Onions",
+                    "location": "Green Acres Farm, Nuwara Eliya",
+                    "temperature": 25.4,
+                    "humidity": 81.8,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754229540.271691
+                }
+            ],
+            "proof": 166,
+            "previous_hash": "00993660ebf50d71379fc9dfcd823489c8bbe207620c4ddd33950a4eca462560",
+            "hash": "00dbcbc24ff37d62b7171774bb0d4f3d01add2d4052f92870f8bbd14a8616f02"
+        },
+        {
+            "index": 62,
+            "timestamp": 1754661540.807976,
+            "transactions": [
+                {
+                    "id": "9a6a308f-5536-49dc-b405-b64734316226",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661540.277631
+                },
+                {
+                    "id": "27849ea1-e978-4fdd-b32a-050b879e4f42",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "5209af17-7217-448e-ab1d-23a3223fbf28",
+                    "product_name": "Red Onions",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 31.0,
+                    "humidity": 83.3,
+                    "transport_info": "Stored in refrigerated unit. ANOMALY DETECTED.",
+                    "status": "In Transit",
+                    "timestamp": 1754506740.271691
+                }
+            ],
+            "proof": 92,
+            "previous_hash": "00dbcbc24ff37d62b7171774bb0d4f3d01add2d4052f92870f8bbd14a8616f02",
+            "hash": "001d90e3c643e2be83371f3923aab57d1dab40c6ee5aa80eb3d14562f17bf23f"
+        },
+        {
+            "index": 63,
+            "timestamp": 1754661541.322732,
+            "transactions": [
+                {
+                    "id": "4f349789-d240-45d2-b323-92fdd1d19272",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661540.8105059
+                },
+                {
+                    "id": "5244a98d-e9bf-4e12-b5dd-6349fe3070b4",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "5209af17-7217-448e-ab1d-23a3223fbf28",
+                    "product_name": "Red Onions",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 19.9,
+                    "humidity": 62.7,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754557140.271691
+                }
+            ],
+            "proof": 4,
+            "previous_hash": "001d90e3c643e2be83371f3923aab57d1dab40c6ee5aa80eb3d14562f17bf23f",
+            "hash": "0029640ed054808eaaca747c59d972c9d497409c6e3d40f818d985e104c032cb"
+        },
+        {
+            "index": 64,
+            "timestamp": 1754661541.3357882,
+            "transactions": [
+                {
+                    "id": "080d2971-edd8-4930-844b-4d24e5c3c2ef",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661541.3230782
+                },
+                {
+                    "id": "8689c16a-0b57-4026-b8f9-7c3c313992fd",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "2a8b9d76-9215-4b6b-9e15-8983de7f81a2",
+                    "product_name": "Red Onions",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 24.1,
+                    "humidity": 80.4,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754229541.33504
+                }
+            ],
+            "proof": 245,
+            "previous_hash": "0029640ed054808eaaca747c59d972c9d497409c6e3d40f818d985e104c032cb",
+            "hash": "006f89d298da3f83111ecb6250f515ded473973e600f3cc81e260ce90e179041"
+        },
+        {
+            "index": 65,
+            "timestamp": 1754661541.8639479,
+            "transactions": [
+                {
+                    "id": "c37fe15a-a827-478d-b8cc-72da452221b6",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661541.3444989
+                },
+                {
+                    "id": "86a34fca-f271-4bef-a981-16ac13928ac0",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "2a8b9d76-9215-4b6b-9e15-8983de7f81a2",
+                    "product_name": "Red Onions",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 14.9,
+                    "humidity": 84.3,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754506741.33504
+                }
+            ],
+            "proof": 380,
+            "previous_hash": "006f89d298da3f83111ecb6250f515ded473973e600f3cc81e260ce90e179041",
+            "hash": "0064b59ea45cc5969a853e36c0b09d6ddf58c7e4956a970abdb2bb4ef3f8375b"
+        },
+        {
+            "index": 66,
+            "timestamp": 1754661542.386646,
+            "transactions": [
+                {
+                    "id": "2a4482b6-106e-47c9-96e4-5a06fef851d7",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661541.874144
+                },
+                {
+                    "id": "f2e9ab2f-7d07-4633-b5c3-ed3541f4e4fa",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "2a8b9d76-9215-4b6b-9e15-8983de7f81a2",
+                    "product_name": "Red Onions",
+                    "location": "City Foods, Kandy",
+                    "temperature": 18.9,
+                    "humidity": 67.8,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754560741.33504
+                }
+            ],
+            "proof": 183,
+            "previous_hash": "0064b59ea45cc5969a853e36c0b09d6ddf58c7e4956a970abdb2bb4ef3f8375b",
+            "hash": "00bb33919b9ae4b4ad54f4af9a8547b36ca3d4b167d67bd5e2c80275e32de972"
+        },
+        {
+            "index": 67,
+            "timestamp": 1754661542.4069743,
+            "transactions": [
+                {
+                    "id": "7a2ef6b9-b6d0-4170-88c2-d6fc7ffa0c11",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661542.3930511
+                },
+                {
+                    "id": "ecc70b0f-ecdc-4bc0-b44f-ab839e63a4c1",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "e264b38a-48ed-447d-9aa8-e9392b6e0395",
+                    "product_name": "Organic Carrots",
+                    "location": "Sun-Kissed Grove, Dambulla",
+                    "temperature": 23.2,
+                    "humidity": 77.1,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1753970342.406216
+                }
+            ],
+            "proof": 295,
+            "previous_hash": "00bb33919b9ae4b4ad54f4af9a8547b36ca3d4b167d67bd5e2c80275e32de972",
+            "hash": "00fb1c0f556c723ecb3e08eabb7168b7c7aa0655bd2c9723f6dbc5b4640e5667"
+        },
+        {
+            "index": 68,
+            "timestamp": 1754661542.9362593,
+            "transactions": [
+                {
+                    "id": "25148014-22e1-4246-95fe-230956991546",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661542.4152353
+                },
+                {
+                    "id": "ec0f0031-890e-436a-a716-5361982f578d",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "e264b38a-48ed-447d-9aa8-e9392b6e0395",
+                    "product_name": "Organic Carrots",
+                    "location": "Regional Warehouse, Gampaha",
+                    "temperature": 14.8,
+                    "humidity": 86.7,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754229542.406216
+                }
+            ],
+            "proof": 179,
+            "previous_hash": "00fb1c0f556c723ecb3e08eabb7168b7c7aa0655bd2c9723f6dbc5b4640e5667",
+            "hash": "00ecd311e64c93a76a93e645de7571ef47a878a4dbf5ddd316a5a6142c6156f0"
+        },
+        {
+            "index": 69,
+            "timestamp": 1754661543.454959,
+            "transactions": [
+                {
+                    "id": "e4e6bbcb-07ca-4fee-81f9-05c8d6d27d41",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661542.9411993
+                },
+                {
+                    "id": "8cb98419-9e64-42e3-b202-2cdd46bdf388",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "e264b38a-48ed-447d-9aa8-e9392b6e0395",
+                    "product_name": "Organic Carrots",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 21.2,
+                    "humidity": 64.8,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754254742.406216
+                }
+            ],
+            "proof": 514,
+            "previous_hash": "00ecd311e64c93a76a93e645de7571ef47a878a4dbf5ddd316a5a6142c6156f0",
+            "hash": "00a0fd9b612430e6a085f019b58f110bc24b5e0997cc007e4605469177187790"
+        },
+        {
+            "index": 70,
+            "timestamp": 1754661543.486426,
+            "transactions": [
+                {
+                    "id": "c1d2ad5c-138d-48aa-bcbd-8e16790b3725",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661543.4728796
+                },
+                {
+                    "id": "0d43445a-bacf-4689-92a4-acae33ec51dd",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "279c3397-cfdb-4227-87e3-0b8a29f28ea8",
+                    "product_name": "King Coconuts",
+                    "location": "Coastal Fields, Matara",
+                    "temperature": 23.8,
+                    "humidity": 80.1,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754056743.485449
+                }
+            ],
+            "proof": 13,
+            "previous_hash": "00a0fd9b612430e6a085f019b58f110bc24b5e0997cc007e4605469177187790",
+            "hash": "0090d8d4e3320e8095aa23c8d6e2fe0e4450739dde53382befb863c49c8ea004"
+        },
+        {
+            "index": 71,
+            "timestamp": 1754661544.0068195,
+            "transactions": [
+                {
+                    "id": "2c03afb0-7427-4580-9e0b-cc888c7dc57a",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661543.4870195
+                },
+                {
+                    "id": "970af1d9-affb-496f-80c4-6c7d14cad126",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "279c3397-cfdb-4227-87e3-0b8a29f28ea8",
+                    "product_name": "King Coconuts",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 14.5,
+                    "humidity": 85.3,
+                    "transport_info": "Stored in refrigerated unit.",
+                    "status": "In Transit",
+                    "timestamp": 1754337543.485449
+                }
+            ],
+            "proof": 81,
+            "previous_hash": "0090d8d4e3320e8095aa23c8d6e2fe0e4450739dde53382befb863c49c8ea004",
+            "hash": "00c295337a6481f30f56e84c5a1f10e4980b408264ba4bab72a116096df42054"
+        },
+        {
+            "index": 72,
+            "timestamp": 1754661544.5225334,
+            "transactions": [
+                {
+                    "id": "7679a478-b3a2-4f2a-a380-5cb8c694f018",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661544.0091488
+                },
+                {
+                    "id": "a26e4014-6354-4f52-ab4d-419d91057574",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "279c3397-cfdb-4227-87e3-0b8a29f28ea8",
+                    "product_name": "King Coconuts",
+                    "location": "City Foods, Kandy",
+                    "temperature": 18.6,
+                    "humidity": 66.9,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754359143.485449
+                }
+            ],
+            "proof": 45,
+            "previous_hash": "00c295337a6481f30f56e84c5a1f10e4980b408264ba4bab72a116096df42054",
+            "hash": "006a700d0f5950c94e9fdfe4669335af7283160d57b6580913e1d02233115008"
+        },
+        {
+            "index": 73,
+            "timestamp": 1754661544.5385354,
+            "transactions": [
+                {
+                    "id": "600690c0-eebf-44c7-9774-d8a101c75da7",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661544.5242245
+                },
+                {
+                    "id": "83023c44-a4da-4b2c-beb0-0c259db950f4",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "358ff6fb-085b-4bb9-ad7a-2158a590cc7b",
+                    "product_name": "Gotu Kola",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 23.7,
+                    "humidity": 79.1,
+                    "transport_info": "Harvested and packed in crates.",
+                    "status": "Registered",
+                    "timestamp": 1754143144.537223
+                }
+            ],
+            "proof": 80,
+            "previous_hash": "006a700d0f5950c94e9fdfe4669335af7283160d57b6580913e1d02233115008",
+            "hash": "0087c0865cd220cae1ef95b835d480130bce96a4b38e750dd7876a073639cb8b"
+        },
+        {
+            "index": 74,
+            "timestamp": 1754661545.0602574,
+            "transactions": [
+                {
+                    "id": "c1401839-7e7d-416b-8a0b-641f5e17d67a",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661544.5414984
+                },
+                {
+                    "id": "5c439fc4-76b4-43ee-bf87-62ab9c238176",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "358ff6fb-085b-4bb9-ad7a-2158a590cc7b",
+                    "product_name": "Gotu Kola",
+                    "location": "Central Distribution Hub, Colombo",
+                    "temperature": 34.5,
+                    "humidity": 84.4,
+                    "transport_info": "Stored in refrigerated unit. ANOMALY DETECTED.",
+                    "status": "In Transit",
+                    "timestamp": 1754243944.537223
+                }
+            ],
+            "proof": 186,
+            "previous_hash": "0087c0865cd220cae1ef95b835d480130bce96a4b38e750dd7876a073639cb8b",
+            "hash": "0046c604ae10dd8c0647c90afd528ee6d039a5d0395e6decdc467800ba4d1490"
+        },
+        {
+            "index": 75,
+            "timestamp": 1754661545.5795162,
+            "transactions": [
+                {
+                    "id": "f9ce1358-4e82-4d5b-9cab-4c624fe8d58b",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661545.065338
+                },
+                {
+                    "id": "5ff7b8b3-f891-4ead-81da-ef727668a4aa",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer",
+                    "product_id": "358ff6fb-085b-4bb9-ad7a-2158a590cc7b",
+                    "product_name": "Gotu Kola",
+                    "location": "FreshMart, Colombo 07",
+                    "temperature": 21.7,
+                    "humidity": 66.5,
+                    "transport_info": "Received and displayed in store.",
+                    "status": "In Stock",
+                    "timestamp": 1754265544.537223
+                }
+            ],
+            "proof": 1066,
+            "previous_hash": "0046c604ae10dd8c0647c90afd528ee6d039a5d0395e6decdc467800ba4d1490",
+            "hash": "00f6866f47888da84cc2d3404cd1156b6073a5a7bb77ef36ed1434f08b5b2270"
+        },
+        {
+            "index": 76,
+            "timestamp": 1756115263.8337123,
+            "transactions": [
+                {
+                    "id": "810dafff-28ba-4bf1-9d67-98a558fb2c9d",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1754661545.6159995
+                },
+                {
+                    "id": "e969e155-c6b8-4618-ad71-86f4888c4421",
+                    "sender": "farmer1@example.com",
+                    "recipient": "dist1@example.com",
+                    "product_id": "2c08bd01-d2cc-4e87-ab90-49b68c1b9079",
+                    "product_name": "Organic Carrots",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 25.0,
+                    "humidity": 78.0,
+                    "transport_info": "Packed",
+                    "status": "Registered",
+                    "timestamp": 1756115263.833675
+                }
+            ],
+            "proof": 1013,
+            "previous_hash": "00f6866f47888da84cc2d3404cd1156b6073a5a7bb77ef36ed1434f08b5b2270",
+            "hash": "00a170623dc7e29fb2276f571a2abde1fac87625dd3850528fb527580ed1fac0"
+        },
+        {
+            "index": 77,
+            "timestamp": 1756128692.0396137,
+            "transactions": [
+                {
+                    "id": "19400756-6934-4f73-8280-9d4c7f46245b",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1756115263.8611908
+                },
+                {
+                    "id": "1ec900fb-a2cc-4914-9d9d-b5fda71b46cf",
+                    "sender": "dist1@example.com",
+                    "recipient": "retail1@example.com",
+                    "product_id": "2c08bd01-d2cc-4e87-ab90-49b68c1b9079",
+                    "product_name": "Organic Carrots",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 15.0,
+                    "humidity": 72.0,
+                    "transport_info": "Stored in Warehouse A",
+                    "status": "In Transit",
+                    "timestamp": 1756128692.039491
+                }
+            ],
+            "proof": 855,
+            "previous_hash": "00a170623dc7e29fb2276f571a2abde1fac87625dd3850528fb527580ed1fac0",
+            "hash": "0074e2cd60cf79ca8d49d29bb26ec74763bdaee6741482a5164990dbd09e4148"
+        },
+        {
+            "index": 78,
+            "timestamp": 1756130698.231498,
+            "transactions": [
+                {
+                    "id": "1c8ee83d-d800-4846-b627-6999c63be36e",
+                    "sender": "Network",
+                    "recipient": "placeholder_miner_address",
+                    "product_id": "reward",
+                    "product_name": "Mining Reward",
+                    "location": "N/A",
+                    "temperature": 0,
+                    "humidity": 0,
+                    "transport_info": "N/A",
+                    "status": null,
+                    "timestamp": 1756128692.0648196
+                },
+                {
+                    "id": "d2bab231-dae4-4ff9-971e-6de3f3ec8239",
+                    "sender": "retail1@example.com",
+                    "recipient": "consumer1@example.com",
+                    "product_id": "2c08bd01-d2cc-4e87-ab90-49b68c1b9079",
+                    "product_name": "Organic Carrots",
+                    "location": "Royal Gardens, Kandy",
+                    "temperature": 15.0,
+                    "humidity": 75.0,
+                    "transport_info": null,
+                    "status": "Sold",
+                    "timestamp": 1756130698.231218
+                }
+            ],
+            "proof": 92,
+            "previous_hash": "0074e2cd60cf79ca8d49d29bb26ec74763bdaee6741482a5164990dbd09e4148",
+            "hash": "0047cbf649d586ea60fca30acb993054a6beaf9406788c638f3e3d8bb2c27f0e"
+        }
+    ],
+    "pending_transactions": [
+        {
+            "id": "f0510c6a-20dd-4099-b6a2-22a944c4dad8",
+            "sender": "Network",
+            "recipient": "placeholder_miner_address",
+            "product_id": "reward",
+            "product_name": "Mining Reward",
+            "location": "N/A",
+            "temperature": 0,
+            "humidity": 0,
+            "transport_info": "N/A",
+            "status": null,
+            "timestamp": 1756130698.234608
+        }
+    ]
+}
