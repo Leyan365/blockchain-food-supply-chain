@@ -1,5 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 from services.blockchain_service import blockchain_service
+from services.validation_service import (
+    clean_text,
+    parse_humidity,
+    parse_temperature,
+    validate_email_like,
+    validate_required_fields,
+)
 from routes.auth import role_required
 from datetime import datetime
 
@@ -66,11 +73,26 @@ def dashboard():
 @role_required('distributor')
 def update_shipment():
     user = session['username']
-    pid = request.form.get('product_id')
-    temp = request.form.get('temperature')
-    hum = request.form.get('humidity')
-    info = request.form.get('transport_info')
-    next_rcpt = request.form.get('next_recipient')
+    required, errors = validate_required_fields(request.form, {
+        'product_id': 'Product ID',
+        'next_recipient': 'Next recipient',
+    })
+    recipient_error = validate_email_like(required.get('next_recipient'), 'Next recipient')
+    if recipient_error:
+        errors.append(recipient_error)
+
+    temp, temp_error = parse_temperature(request.form.get('temperature'))
+    hum, humidity_error = parse_humidity(request.form.get('humidity'))
+    errors.extend(error for error in (temp_error, humidity_error) if error)
+
+    if errors:
+        for error in errors:
+            flash(error, 'danger')
+        return redirect(url_for('distributor.dashboard'))
+
+    pid = required['product_id']
+    info = clean_text(request.form.get('transport_info'))
+    next_rcpt = required['next_recipient']
 
     # Get the last transaction for the product to retrieve existing data
     last = blockchain_service.get_latest_tx_for_product(pid)
@@ -87,8 +109,8 @@ def update_shipment():
         "sender": user,
         "recipient": next_rcpt,
         "location": last.get('location'),
-        "temperature": float(temp) if temp else None,
-        "humidity": float(hum) if hum else None,
+        "temperature": temp,
+        "humidity": hum,
         "transport_info": info,
         "status": "In Transit"
     }

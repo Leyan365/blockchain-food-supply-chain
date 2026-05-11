@@ -110,6 +110,71 @@ class RouteTests(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertIn("/farmer/dashboard", response.headers["Location"])
 
+    def test_invalid_farmer_submission_does_not_add_transaction(self):
+        self.client.post(
+            "/auth/login",
+            data={"username": "farmer1@example.com", "password": "pass123"},
+        )
+        before_count = len(blockchain_service.get_all_transactions())
+
+        response = self.client.post(
+            "/farmer/add_transaction",
+            data={
+                "product_name": "",
+                "recipient": "not-an-email",
+                "location": "",
+                "temperature": "100",
+                "humidity": "101",
+            },
+            follow_redirects=False,
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(blockchain_service.get_all_transactions()), before_count)
+
+    def test_invalid_distributor_submission_does_not_add_transaction(self):
+        self.client.post(
+            "/auth/login",
+            data={"username": "dist1@example.com", "password": "pass123"},
+        )
+        before_count = len(blockchain_service.get_all_transactions())
+
+        response = self.client.post(
+            "/distributor/update_shipment",
+            data={
+                "product_id": "",
+                "next_recipient": "retailer",
+                "temperature": "cold",
+                "humidity": "-2",
+            },
+            follow_redirects=False,
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(blockchain_service.get_all_transactions()), before_count)
+
+    def test_invalid_retailer_submission_does_not_add_transaction(self):
+        self.client.post(
+            "/auth/login",
+            data={"username": "retail1@example.com", "password": "pass123"},
+        )
+        before_count = len(blockchain_service.get_all_transactions())
+
+        response = self.client.post(
+            "/retailer/update_inventory",
+            data={
+                "product_id": "",
+                "next_recipient": "consumer",
+                "storage_temp": "90",
+                "storage_humidity": "120",
+                "expiry_date": "20-05-2026",
+            },
+            follow_redirects=False,
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(blockchain_service.get_all_transactions()), before_count)
+
 
 if __name__ == "__main__":
     unittest.main()

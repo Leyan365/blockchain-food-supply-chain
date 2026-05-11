@@ -1,5 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 from services.blockchain_service import blockchain_service
+from services.validation_service import (
+    clean_text,
+    parse_humidity,
+    parse_temperature,
+    validate_email_like,
+    validate_required_fields,
+)
 from routes.auth import role_required
 from datetime import datetime
 from uuid import uuid4 
@@ -87,12 +94,28 @@ def dashboard():
 @role_required('farmer')
 def add_transaction():
     sender = session['username']
-    product_name = request.form.get("product_name")
-    recipient = request.form.get("recipient")
-    location = request.form.get("location")
-    temperature = request.form.get("temperature")
-    humidity = request.form.get("humidity")
-    transport_info = request.form.get("transport_info")
+    required, errors = validate_required_fields(request.form, {
+        "product_name": "Product name",
+        "recipient": "Recipient",
+        "location": "Farm location",
+    })
+    recipient_error = validate_email_like(required.get("recipient"), "Recipient")
+    if recipient_error:
+        errors.append(recipient_error)
+
+    temperature, temp_error = parse_temperature(request.form.get("temperature"))
+    humidity, humidity_error = parse_humidity(request.form.get("humidity"))
+    errors.extend(error for error in (temp_error, humidity_error) if error)
+
+    if errors:
+        for error in errors:
+            flash(error, "danger")
+        return redirect(url_for("farmer.dashboard"))
+
+    product_name = required["product_name"]
+    recipient = required["recipient"]
+    location = required["location"]
+    transport_info = clean_text(request.form.get("transport_info"))
 
     # Generate a unique UUID for the product_id for new registrations
     product_id = str(uuid4())
@@ -103,8 +126,8 @@ def add_transaction():
         "sender": sender,
         "recipient": recipient,
         "location": location,
-        "temperature": float(temperature) if temperature else None,
-        "humidity": float(humidity) if humidity else None,
+        "temperature": temperature,
+        "humidity": humidity,
         "transport_info": transport_info,
         "status": "Registered" 
     }

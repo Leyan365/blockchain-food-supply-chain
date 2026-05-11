@@ -1,5 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 from services.blockchain_service import blockchain_service
+from services.validation_service import (
+    parse_humidity,
+    parse_temperature,
+    validate_email_like,
+    validate_optional_date,
+    validate_required_fields,
+)
 from routes.auth import role_required
 from datetime import datetime
 
@@ -68,11 +75,26 @@ def dashboard():
 @role_required('retailer')
 def update_inventory():
     user = session['username']
-    pid = request.form.get('product_id')
-    temp = request.form.get('storage_temp')
-    hum = request.form.get('storage_humidity')
-    expiry = request.form.get('expiry_date')
-    next_rcpt = request.form.get('next_recipient')
+    required, errors = validate_required_fields(request.form, {
+        'product_id': 'Product ID',
+    })
+    next_rcpt = (request.form.get('next_recipient') or '').strip()
+    recipient_error = validate_email_like(next_rcpt, 'Consumer email')
+    if recipient_error:
+        errors.append(recipient_error)
+
+    temp, temp_error = parse_temperature(request.form.get('storage_temp'), 'Storage temperature')
+    hum, humidity_error = parse_humidity(request.form.get('storage_humidity'), 'Storage humidity')
+    expiry = (request.form.get('expiry_date') or '').strip()
+    expiry_error = validate_optional_date(expiry, 'Expiry date')
+    errors.extend(error for error in (temp_error, humidity_error, expiry_error) if error)
+
+    if errors:
+        for error in errors:
+            flash(error, 'danger')
+        return redirect(url_for('retailer.dashboard'))
+
+    pid = required['product_id']
 
     # Get the last transaction to retrieve product name and location
     last = blockchain_service.get_latest_tx_for_product(pid)
@@ -88,8 +110,8 @@ def update_inventory():
         "sender": user,
         "recipient": next_rcpt or user,
         "location": last.get("location"), 
-        "temperature": float(temp) if temp else None,
-        "humidity": float(hum) if hum else None,
+        "temperature": temp,
+        "humidity": hum,
         "transport_info": None, 
         "status": "In Stock" if not next_rcpt else "Sold",
         "expiry_date": expiry,
