@@ -1,124 +1,215 @@
-# Farm-to-Chain Fresh: A Blockchain-based Food Supply Chain
+# Farm-to-Chain Fresh: Blockchain Food Supply Chain
 
-## 📖 Project Overview
+Farm-to-Chain Fresh is a Flask web application that demonstrates how blockchain-style records can improve food supply-chain traceability. Farmers, distributors, and retailers can record product movements, storage conditions, and custody changes, while consumers can verify a product's journey through a public tracking page or QR code.
 
-**Farm-to-Chain Fresh** is a web application that leverages blockchain technology and data science to create a transparent and traceable food supply chain. Built with Python's **Flask** framework, this project demonstrates how every step of a food product's journey—from the farm to the retailer—can be recorded on an immutable ledger. The application provides stakeholders with real-time analytics to ensure quality, prevent fraud, and build consumer trust.
+## Key Features
 
-## ✨ Key Features
+- Role dashboards for farmers, distributors, retailers, and consumers.
+- Blockchain-backed product history with block hashes, proof values, and chain validation.
+- Public product tracking by product ID.
+- QR codes for product tracking links.
+- Analytics dashboard with filters, KPIs, insights, anomaly reports, and charts.
+- Role-based access control for protected stakeholder dashboards.
+- JSON-backed demo persistence for blockchain and sample product data.
+- Automated tests for blockchain behavior, route access, tracking, QR generation, and analytics.
 
-* **Stakeholder Dashboards:** Role-based dashboards for **Farmers**, **Distributors**, and **Retailers** to manage their specific operations.
-* **End-to-End Traceability:** A public-facing explorer to view the entire history of any product on the blockchain, from origin to final destination.
-* **Data Analytics:** Integrates data science quality control, anomaly detection, and supply chain performance analysis.
+## Technology Stack
 
-## 🚀 Getting Started
+- Backend: Python, Flask
+- Blockchain: Custom proof-of-work blockchain implementation
+- Analytics: Pandas, Plotly, NumPy, scikit-learn
+- Frontend: HTML, Bootstrap, CSS
+- Persistence: JSON files
+- Testing: Python unittest
 
-### Prerequisites
+## Setup
 
-Make sure you have Python 3.8+ installed.
+### 1. Clone The Repository
 
-### Installation
+```bash
+git clone https://github.com/Leyan365/blockchain-food-supply-chain.git
+cd blockchain-food-supply-chain
+```
 
-1.  Clone the repository:
-  
+### 2. Create And Activate A Virtual Environment
 
-2.  Create and activate a virtual environment:
-   
+Windows PowerShell:
 
-3.  Install the required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
 
-4.  Run the application:
-    ```bash
-    python run.py
-    ```
+Conda:
 
-5.  Open your web browser and navigate to `http://127.0.0.1:5000`.
+```powershell
+conda create -n dsenv python=3.13
+conda activate dsenv
+```
 
-## 🔒 User Credentials
+### 3. Install Dependencies
 
-The application uses hardcoded credentials for demonstration purposes.
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run The Application
+
+```bash
+python run.py
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Demo Credentials
 
 | Role | Email | Password |
 | :--- | :--- | :--- |
-| **Farmer** | `farmer1@example.com` | `pass123` |
-| **Distributor** | `dist1@example.com` | `pass123` |
-| **Retailer** | `retail1@example.com` | `pass123` |
+| Farmer | `farmer1@example.com` | `pass123` |
+| Distributor | `dist1@example.com` | `pass123` |
+| Retailer | `retail1@example.com` | `pass123` |
+| Consumer | `consumer1@example.com` | `pass123` |
 
----
+## Useful URLs
 
-## 📸 Application Walkthrough
+| Page | URL |
+| :--- | :--- |
+| Home | `http://127.0.0.1:5000/` |
+| Login | `http://127.0.0.1:5000/auth/login` |
+| Farmer Dashboard | `http://127.0.0.1:5000/farmer/dashboard` |
+| Distributor Dashboard | `http://127.0.0.1:5000/distributor/dashboard` |
+| Retailer Dashboard | `http://127.0.0.1:5000/retailer/dashboard` |
+| Consumer Tracking | `http://127.0.0.1:5000/consumer/dashboard` |
+| Analytics | `http://127.0.0.1:5000/analytics/overview` |
+| Blockchain Explorer | `http://127.0.0.1:5000/blockchain-data` |
 
-### 1. Landing Page & Login
+Product-specific tracking URLs use this format:
 
-The application's landing page provides a clean, user-friendly introduction to the platform and its purpose. It clearly explains the benefits of blockchain-based traceability.
+```text
+http://127.0.0.1:5000/consumer/track/<product_id>
+```
+
+QR images use this format:
+
+```text
+http://127.0.0.1:5000/consumer/qr/<product_id>
+```
+
+## Demo Flow
+
+1. Log in as the farmer and register a new product.
+2. Open the farmer dashboard and use the product's Track button or QR code.
+3. Log in as the distributor and update shipment conditions.
+4. Log in as the retailer and update inventory or sale status.
+5. Open the consumer tracking page to verify the full product journey.
+6. Open the analytics dashboard to filter by product, status, stakeholder, date range, anomalies, or "My activity".
+7. Open the blockchain explorer and confirm the chain integrity status is valid.
+
+## Analytics Dashboard
+
+The analytics dashboard starts with all supply-chain data. Logged-in stakeholder users can switch the Data Scope filter to "My activity" to focus only on transactions where they are the sender or recipient.
+
+Current analytics include:
+
+- Total products and transactions
+- In-transit and sold/stocked counts
+- Average temperature
+- Temperature anomaly count and anomaly rate
+- Average journey duration
+- Chain validity status
+- Temperature trend chart
+- Status distribution chart
+- Product condition chart
+- Stakeholder activity chart
+- Journey duration chart
+- Anomalies by product chart
+
+## Access Control
+
+The application protects role-specific dashboards:
+
+- Farmers can access farmer routes.
+- Distributors can access distributor routes.
+- Retailers can access retailer routes.
+- Wrong-role users are redirected back to their own dashboard.
+- Consumer tracking remains public for product verification.
+- Analytics and blockchain explorer require login.
+
+## Running Tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The current test suite covers:
+
+- Blockchain mining and validity
+- Transaction expiry date persistence
+- Consumer tracking routes
+- QR PNG generation
+- Role-based route protection
+- Analytics filters and page rendering
+
+## Application Walkthrough
+
+### Landing Page And Login
+
+The landing page introduces the platform and the value of blockchain-based traceability.
 
 <img width="1920" height="1044" alt="landing page 1" src="https://github.com/user-attachments/assets/0771bd81-bd60-4f3d-b193-eae23b482ac0" />
 <img width="1891" height="1034" alt="landing page 2" src="https://github.com/user-attachments/assets/163fac7e-472f-4d05-924f-f4153f52ae8b" />
 
-
-The login page ensures secure, role-based access for each stakeholder, directing them to their unique dashboard.
+The login page sends each stakeholder to the correct dashboard.
 
 <img width="1696" height="867" alt="login" src="https://github.com/user-attachments/assets/3925075f-f22e-49bb-b68d-ae8b80926c39" />
 
-
-### 2. Stakeholder Dashboards
+### Stakeholder Dashboards
 
 #### Farmer Dashboard
 
-This dashboard allows a farmer to register a new product, logging its initial details, location, and environmental conditions. This action creates the first immutable transaction on the blockchain.
+Farmers register products, capture origin details, and create the first immutable transaction in the product journey.
 
 <img width="1780" height="996" alt="farmer dashboard" src="https://github.com/user-attachments/assets/c9ef49e7-42dd-4c14-878b-8baa6338f1e5" />
 <img width="1732" height="972" alt="farmer dashboard 2" src="https://github.com/user-attachments/assets/b28e1f22-fce4-4430-bd23-04ee856233c4" />
 
-
 #### Distributor Dashboard
 
-The distributor's dashboard allows them to receive products from farmers, update their status, and transfer them to retailers. Every step is logged on the blockchain, ensuring a continuous chain of custody.
+Distributors receive products, update shipment conditions, and forward products to retailers.
 
-<img width="1751" height="991" alt="dist dashboard" src="https://github.com/user-attachments/assets/b3f5d38b-2557-4dea-9c69-28d6c4020e4c" />
-<img width="1643" height="737" alt="dist shipments" src="https://github.com/user-attachments/assets/db158c0f-6427-4586-9802-b3554ad24edc" />
-
+<img width="1751" height="991" alt="distributor dashboard" src="https://github.com/user-attachments/assets/b3f5d38b-2557-4dea-9c69-28d6c4020e4c" />
+<img width="1643" height="737" alt="distributor shipments" src="https://github.com/user-attachments/assets/db158c0f-6427-4586-9802-b3554ad24edc" />
 
 #### Retailer Dashboard
 
-The retailer manages incoming deliveries and updates the inventory's status. They can also record the final sale to a consumer, completing the product's journey on the blockchain.
+Retailers manage incoming deliveries, storage conditions, inventory status, and final sale records.
 
-<img width="1702" height="870" alt="retailer dash" src="https://github.com/user-attachments/assets/565c3b49-6573-4af0-91a6-cab832a35915" />
-<img width="1676" height="713" alt="inven" src="https://github.com/user-attachments/assets/61a231d5-8a85-41ab-9b26-f750ce839b5a" />
+<img width="1702" height="870" alt="retailer dashboard" src="https://github.com/user-attachments/assets/565c3b49-6573-4af0-91a6-cab832a35915" />
+<img width="1676" height="713" alt="inventory" src="https://github.com/user-attachments/assets/61a231d5-8a85-41ab-9b26-f750ce839b5a" />
 
+### Blockchain Explorer
 
-### 3. Blockchain Explorer
-
-This page provides a public, transparent view of the entire blockchain. Any user can inspect each block to see its hash, timestamp, and the transactions it contains, proving the immutability of the data.
+The blockchain explorer shows blocks, transactions, hashes, proof values, pending transactions, and chain integrity.
 
 <img width="1708" height="962" alt="logged blockchain" src="https://github.com/user-attachments/assets/46302e1a-dbca-4dbe-88c8-54daa0239969" />
-<img width="1695" height="1001" alt="loggeed in block data" src="https://github.com/user-attachments/assets/55c63a65-0cc9-4812-a384-dd67bc17b05d" />
+<img width="1695" height="1001" alt="logged in block data" src="https://github.com/user-attachments/assets/55c63a65-0cc9-4812-a384-dd67bc17b05d" />
 <img width="1241" height="1006" alt="chain visualization" src="https://github.com/user-attachments/assets/e4e3a379-aa06-4839-bd39-20e11d30193b" />
 
+### Analytics Dashboard
 
-### 4. Analytics Dashboard
+The analytics dashboard transforms blockchain records into operational metrics, charts, and anomaly insights.
 
-This dashboard transforms raw blockchain data into actionable insights using data science. Visualizations help monitor performance, detect anomalies (like temperature spikes), and ensure product quality throughout the journey.
+<img width="1740" height="1010" alt="analytics" src="https://github.com/user-attachments/assets/0445ffff-b4ea-40dd-9fe0-e45fb798fbbc" />
+<img width="1660" height="775" alt="temperature anomalies" src="https://github.com/user-attachments/assets/6e875526-d78c-457b-880e-5527ba7206a2" />
+<img width="1638" height="837" alt="journey time" src="https://github.com/user-attachments/assets/26350038-b8e1-4969-9ffe-d18b624803c8" />
+<img width="1752" height="927" alt="bar chart" src="https://github.com/user-attachments/assets/18557a8c-972f-4df1-a937-608738e378f6" />
+<img width="1692" height="746" alt="box plot" src="https://github.com/user-attachments/assets/09c0f99b-91ac-4cc5-8068-84597891dbec" />
+<img width="1707" height="750" alt="transactions" src="https://github.com/user-attachments/assets/d28ae5bc-6e02-43b9-ae02-215119e42f91" />
+<img width="1731" height="761" alt="scatter chart" src="https://github.com/user-attachments/assets/a6075202-bdd8-40d7-95c4-56c756a77720" />
 
-<img width="1740" height="1010" alt="ana" src="https://github.com/user-attachments/assets/0445ffff-b4ea-40dd-9fe0-e45fb798fbbc" />
-<img width="1660" height="775" alt="temp ano" src="https://github.com/user-attachments/assets/6e875526-d78c-457b-880e-5527ba7206a2" />
-<img width="1638" height="837" alt="time" src="https://github.com/user-attachments/assets/26350038-b8e1-4969-9ffe-d18b624803c8" />
-<img width="1752" height="927" alt="bar" src="https://github.com/user-attachments/assets/18557a8c-972f-4df1-a937-608738e378f6" />
-<img width="1692" height="746" alt="boxplot" src="https://github.com/user-attachments/assets/09c0f99b-91ac-4cc5-8068-84597891dbec" />
-<img width="1707" height="750" alt="transsactions" src="https://github.com/user-attachments/assets/d28ae5bc-6e02-43b9-ae02-215119e42f91" />
-<img width="1731" height="761" alt="scatter" src="https://github.com/user-attachments/assets/a6075202-bdd8-40d7-95c4-56c756a77720" />
+## Notes
 
-
-
----
-
-## 🛠️ Technology Stack
-
-* **Backend:** Python-Flask
-* **Blockchain:** Custom implementation for a private, permissioned network.
-* **Data Science:** Pandas, Matplotlib, Plotly for data analysis and visualization.
-* **Frontend:** HTML, CSS.
-* **Data Persistence:** JSON files for simple data storage.
-* **Version Control:** Git, GitHub.
+This is a demonstration project. The current credentials and JSON persistence are intentionally simple for coursework and local demos. For production use, replace demo credentials with hashed passwords and use a database-backed persistence layer.
