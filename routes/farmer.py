@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 from services.blockchain_service import blockchain_service
+from routes.auth import role_required
 from datetime import datetime
 from uuid import uuid4 
 
@@ -7,11 +8,8 @@ farmer_bp = Blueprint('farmer', __name__, url_prefix='/farmer')
 
 
 @farmer_bp.route('/dashboard')
+@role_required('farmer')
 def dashboard():
-    if 'username' not in session:
-        flash("Please log in to access the dashboard.", "warning") 
-        return redirect(url_for('auth.login'))
-
     farmer = session['username']
    
     all_transactions = blockchain_service.get_all_transactions()
@@ -86,11 +84,8 @@ def dashboard():
 
 
 @farmer_bp.route('/add_transaction', methods=['POST'])
+@role_required('farmer')
 def add_transaction():
-    if 'username' not in session:
-        flash("Please log in to perform this action.", "warning") 
-        return redirect(url_for('auth.login'))
-
     sender = session['username']
     product_name = request.form.get("product_name")
     recipient = request.form.get("recipient")

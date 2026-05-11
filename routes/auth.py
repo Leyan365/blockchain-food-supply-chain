@@ -22,6 +22,23 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+def role_required(*allowed_roles):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if 'username' not in session:
+                flash('Please log in to access this page.', 'warning')
+                return redirect(url_for('auth.login'))
+
+            user_role = session.get('role')
+            if user_role not in allowed_roles:
+                flash('You do not have permission to access that page.', 'danger')
+                return redirect(url_for(f"{user_role}.dashboard"))
+
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
+
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':

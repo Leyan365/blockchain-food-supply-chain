@@ -39,6 +39,45 @@ class RouteTests(unittest.TestCase):
         self.assertIn(product_id.encode(), response.data)
         self.assertIn(b"Journey History", response.data)
 
+    def test_role_dashboard_requires_login(self):
+        response = self.client.get("/farmer/dashboard", follow_redirects=False)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/auth/login", response.headers["Location"])
+
+    def test_wrong_role_cannot_access_farmer_dashboard(self):
+        self.client.post(
+            "/auth/login",
+            data={"username": "dist1@example.com", "password": "pass123"},
+        )
+
+        response = self.client.get("/farmer/dashboard", follow_redirects=False)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/distributor/dashboard", response.headers["Location"])
+
+    def test_wrong_role_cannot_access_distributor_dashboard(self):
+        self.client.post(
+            "/auth/login",
+            data={"username": "retail1@example.com", "password": "pass123"},
+        )
+
+        response = self.client.get("/distributor/dashboard", follow_redirects=False)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/retailer/dashboard", response.headers["Location"])
+
+    def test_wrong_role_cannot_access_retailer_dashboard(self):
+        self.client.post(
+            "/auth/login",
+            data={"username": "farmer1@example.com", "password": "pass123"},
+        )
+
+        response = self.client.get("/retailer/dashboard", follow_redirects=False)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/farmer/dashboard", response.headers["Location"])
+
 
 if __name__ == "__main__":
     unittest.main()

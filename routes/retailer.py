@@ -1,15 +1,13 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 from services.blockchain_service import blockchain_service
+from routes.auth import role_required
 from datetime import datetime
 
 retailer_bp = Blueprint('retailer', __name__, url_prefix='/retailer')
 
 @retailer_bp.route('/dashboard')
+@role_required('retailer')
 def dashboard():
-    if 'username' not in session:
-        flash("Please log in to access the dashboard.", "warning")
-        return redirect(url_for('auth.login'))
-
     user = session['username']
     all_tx = blockchain_service.get_all_transactions()
 
@@ -67,11 +65,8 @@ def dashboard():
     )
 
 @retailer_bp.route('/update_inventory', methods=['POST'])
+@role_required('retailer')
 def update_inventory():
-    if 'username' not in session:
-        flash("Please log in to perform this action.", "warning")
-        return redirect(url_for('auth.login'))
-
     user = session['username']
     pid = request.form.get('product_id')
     temp = request.form.get('storage_temp')
