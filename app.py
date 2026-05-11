@@ -11,6 +11,7 @@ from routes.distributor import distributor_bp
 from routes.retailer import retailer_bp
 from routes.consumer import consumer_bp
 from routes.analytics import analytics_bp
+from routes.api import api_bp
 
 #Import the blockchain service
 from services.blockchain_service import blockchain_service
@@ -30,6 +31,7 @@ def create_app(config_name='dev'):
     app.register_blueprint(retailer_bp, url_prefix='/retailer')
     app.register_blueprint(consumer_bp, url_prefix='/consumer')
     app.register_blueprint(analytics_bp, url_prefix='/analytics')
+    app.register_blueprint(api_bp, url_prefix='/api')
 
     #Register a custom Jinja filter to format timestamps
     @app.template_filter('timestamp_to_datetime')

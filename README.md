@@ -86,6 +86,8 @@ http://127.0.0.1:5000
 | Consumer Tracking | `http://127.0.0.1:5000/consumer/dashboard` |
 | Analytics | `http://127.0.0.1:5000/analytics/overview` |
 | Blockchain Explorer | `http://127.0.0.1:5000/blockchain-data` |
+| Blockchain Status API | `http://127.0.0.1:5000/api/blockchain/status` |
+| Products API | `http://127.0.0.1:5000/api/products` |
 
 Product-specific tracking URLs use this format:
 
@@ -98,6 +100,19 @@ QR images use this format:
 ```text
 http://127.0.0.1:5000/consumer/qr/<product_id>
 ```
+
+## JSON API
+
+The project includes read-only JSON endpoints for integrations, mobile clients, and testing:
+
+```text
+GET /api/blockchain/status
+GET /api/products
+GET /api/products/<product_id>
+GET /api/products/<product_id>/history
+```
+
+These endpoints expose chain health, product summaries, latest product state, and full product history without requiring the HTML dashboards.
 
 ## Demo Flow
 
@@ -150,6 +165,7 @@ The current test suite covers:
 - Blockchain mining and validity
 - Transaction expiry date persistence
 - Consumer tracking routes
+- Product and blockchain status APIs
 - QR PNG generation
 - Role-based route protection
 - Analytics filters and page rendering
