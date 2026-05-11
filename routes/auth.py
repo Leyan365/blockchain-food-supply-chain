@@ -1,16 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from functools import wraps
 from services.blockchain_service import blockchain_service
+from services.user_service import user_service
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
-
-# Hardcoded user credentials for demonstration
-USERS = {
-    'farmer1@example.com': ('pass123', 'farmer'),
-    'dist1@example.com': ('pass123', 'distributor'),
-    'retail1@example.com': ('pass123', 'retailer'),
-    'consumer1@example.com': ('pass123', 'consumer'),
-}
 
 # Decorator to ensure a user is logged in
 def login_required(f):
@@ -42,15 +35,15 @@ def role_required(*allowed_roles):
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        uname = request.form['username']
+        uname = request.form['username'].strip().lower()
         pwd = request.form['password']
-        user = USERS.get(uname)
+        user = user_service.verify_user_password(uname, pwd)
 
-        if user and user[0] == pwd:
+        if user:
             session['username'] = uname
-            session['role'] = user[1]
+            session['role'] = user['role']
             
-            return redirect(url_for(f"{user[1]}.dashboard"))
+            return redirect(url_for(f"{user['role']}.dashboard"))
         else:
             flash("Invalid credentials. Please try again.", 'danger')
             return render_template('login.html', error="Invalid credentials"), 401

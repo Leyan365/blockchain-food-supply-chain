@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "email": "farmer1@example.com",
+      "password_hash": "scrypt:32768:8:1$8mN4embvMlRQklFs$beb24869d6c354868c36dc55fff5476a9307164d436e5774d9c6f891d6500a0c60b929c1fbb1005994f2909534895d414e09d242efac127de6be9e15de2b0f1a",
+      "role": "farmer"
+    },
+    {
+      "email": "dist1@example.com",
+      "password_hash": "scrypt:32768:8:1$Ba1SIQhdfMRrk94T$34e9062d7c5fae01abe51298f255ae69e02f0e0e2741cbd7b74716b9f69c0f60ac3c6dff8cc6aa9c401428a694aaf33e1082d21c784654b011694f0e44bc39b3",
+      "role": "distributor"
+    },
+    {
+      "email": "retail1@example.com",
+      "password_hash": "scrypt:32768:8:1$lfC9DgbfY0vyqXwi$ab522f7d5ee615b06b212a7e07475325f9f729041bc03d39402937ab210d25f32adad9421c017f0953137a40421cc6622b70bb09a3c17007b37dd2049ef16321",
+      "role": "retailer"
+    },
+    {
+      "email": "consumer1@example.com",
+      "password_hash": "scrypt:32768:8:1$nOqseCxeHaznmW6f$3e467e724bd55630072584bb2c083ce2d0a8675a752f7cd87ae629a836c6830c83a76e7d6d184246192d0578369f2a96701a37fc56858a4b5fed45530e80101d",
+      "role": "consumer"
+    }
+  ]
+}

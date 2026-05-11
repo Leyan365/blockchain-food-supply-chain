@@ -16,6 +16,26 @@ class RouteTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Track a Product", response.data)
 
+    def test_valid_login_uses_hashed_user_store(self):
+        response = self.client.post(
+            "/auth/login",
+            data={"username": "farmer1@example.com", "password": "pass123"},
+            follow_redirects=False,
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/farmer/dashboard", response.headers["Location"])
+
+    def test_invalid_login_is_rejected(self):
+        response = self.client.post(
+            "/auth/login",
+            data={"username": "farmer1@example.com", "password": "wrong-password"},
+            follow_redirects=False,
+        )
+
+        self.assertEqual(response.status_code, 401)
+        self.assertIn(b"Invalid credentials", response.data)
+
     def test_short_tracking_link_redirects_to_consumer_tracking(self):
         summaries = blockchain_service.get_product_summaries()
         if not summaries:
