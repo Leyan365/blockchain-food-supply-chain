@@ -6,7 +6,6 @@
     <h2 class="mb-4 text-success">Farmer Dashboard</h2>
     <p class="lead">Welcome, {{ session['username'] }}!</p>
 
-    <!-- Overview Cards -->
     <div class="row text-white">
         <div class="col-md-3 mb-3">
             <div class="card bg-success shadow-sm">
@@ -42,7 +41,6 @@
         </div>
     </div>
 
-    <!-- New Transaction Form -->
     <div class="card my-5">
         <div class="card-header bg-success text-white">
             Register New Product / Transfer
@@ -66,7 +64,7 @@
                         <input type="text" class="form-control" name="location" placeholder="Farm Name, City, Country">
                     </div>
                     <div class="col-md-3">
-                        <label for="temperature" class="form-label">Temperature (°C)</label>
+                        <label for="temperature" class="form-label">Temperature (&deg;C)</label>
                         <input type="number" step="0.1" class="form-control" name="temperature">
                     </div>
                     <div class="col-md-3">
@@ -85,7 +83,6 @@
         </div>
     </div>
 
-    <!-- Registered Products -->
     <h4 class="mt-5 mb-3">My Registered Products</h4>
     <div class="table-responsive">
         <table class="table table-bordered table-striped" id="products-table">
@@ -107,7 +104,7 @@
                     <td>{{ product.location or 'N/A' }}</td>
                     <td>{{ product.status or 'In Transit' }}</td>
                     <td>{{ product.last_updated }}</td>
-                    <td><a href="/track/{{ product.id }}" class="btn btn-sm btn-primary">Track</a></td>
+                    <td><a href="{{ url_for('consumer.track_product_by_id', product_id=product.id) }}" class="btn btn-sm btn-primary">Track</a></td>
                 </tr>
                 {% endfor %}
                 {% if products|length == 0 %}
@@ -119,7 +116,6 @@
         </table>
     </div>
 
-    <!-- Recent Transactions -->
     <h4 class="mt-5 mb-3">Recent Activities</h4>
     <ul class="list-group" id="activity-feed">
         {% for activity in recent_activities %}

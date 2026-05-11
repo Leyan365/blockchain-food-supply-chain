@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}Track Product{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-end mb-4">
+                <div>
+                    <h2 class="mb-2" style="color: var(--tech-blue);">Track a Product</h2>
+                    <p class="text-muted mb-0">Enter a product ID to view its verified farm-to-retail journey.</p>
+                </div>
+                <span class="badge {{ 'bg-success' if chain_valid else 'bg-danger' }} align-self-start align-self-md-center">
+                    Chain {{ 'Valid' if chain_valid else 'Invalid' }}
+                </span>
+            </div>
+
+            <div class="card p-4 mb-4">
+                <form method="GET" action="{{ url_for('consumer.track_product') }}" class="row g-3 align-items-end">
+                    <div class="col-md-9">
+                        <label for="product_id" class="form-label">Product ID</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="product_id"
+                            name="product_id"
+                            value="{{ product_id }}"
+                            placeholder="Paste a product ID"
+                            required
+                        >
+                    </div>
+                    <div class="col-md-3 d-grid">
+                        <button type="submit" class="btn btn-primary">Track</button>
+                    </div>
+                </form>
+            </div>
+
+            {% if product_id and not history %}
+                <div class="alert alert-warning">No product history was found for <code>{{ product_id }}</code>.</div>
+            {% endif %}
+
+            {% if latest %}
+                <div class="card p-4 mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <small class="text-muted d-block">Product</small>
+                            <strong>{{ latest.product_name or 'N/A' }}</strong>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted d-block">Current Status</small>
+                            <strong>{{ latest.status or 'N/A' }}</strong>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted d-block">Last Location</small>
+                            <strong>{{ latest.location or 'N/A' }}</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-4">
+                    <h4 class="mb-3">Journey History</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Location</th>
+                                    <th>Conditions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for tx in history %}
+                                <tr>
+                                    <td>{{ tx.timestamp|timestamp_to_datetime }}</td>
+                                    <td><span class="badge bg-secondary">{{ tx.status or 'N/A' }}</span></td>
+                                    <td>{{ tx.sender or 'N/A' }}</td>
+                                    <td>{{ tx.recipient or 'N/A' }}</td>
+                                    <td>{{ tx.location or 'N/A' }}</td>
+                                    <td>
+                                        {{ tx.temperature if tx.temperature is not none else 'N/A' }}&deg;C /
+                                        {{ tx.humidity if tx.humidity is not none else 'N/A' }}%
+                                        {% if tx.expiry_date %}
+                                            <br><small class="text-muted">Expires {{ tx.expiry_date }}</small>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% else %}
+                <div class="card p-4">
+                    <h4 class="mb-3">Recent Products</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Product ID</th>
+                                    <th>Status</th>
+                                    <th>Location</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in products %}
+                                <tr>
+                                    <td>{{ product.product_name }}</td>
+                                    <td><code>{{ product.product_id }}</code></td>
+                                    <td>{{ product.status or 'N/A' }}</td>
+                                    <td>{{ product.location or 'N/A' }}</td>
+                                    <td class="text-end">
+                                        <a class="btn btn-sm btn-outline-primary" href="{{ url_for('consumer.track_product_by_id', product_id=product.product_id) }}">Track</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                {% if products|length == 0 %}
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">No products are available yet.</td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

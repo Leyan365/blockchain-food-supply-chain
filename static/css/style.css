@@ -56,13 +56,13 @@ nav ul li a { color: white; }
 /* --- CSS for Product_history.html --- */
 .chain-viz-container {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap; 
     align-items: center;
     gap: 10px;
     padding: 1rem;
     background-color: #f8f9fa;
     border-radius: 8px;
-    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    overflow-x: auto; 
 }
 
 .block-box {

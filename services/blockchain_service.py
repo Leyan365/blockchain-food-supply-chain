@@ -29,7 +29,7 @@ class BlockchainService:
                     transactions=block_data['transactions'],
                     timestamp=block_data['timestamp'],
                     previous_hash=block_data['previous_hash'],
-                    nonce=block_data['proof']
+                    nonce=block_data.get('proof', block_data.get('nonce', 0))
                 )
                 block_instance.hash = block_data['hash']
                 loaded_blockchain.chain.append(block_instance)
@@ -56,13 +56,11 @@ class BlockchainService:
         Creates a new transaction. If a timestamp is provided in tx_data, it uses it.
         Otherwise, it defaults to the current time.
         """
-        # --- THIS IS THE FIX ---
-        # Only set a new timestamp if one isn't already provided in tx_data
+        
         if "timestamp" not in tx_data or tx_data.get("timestamp") is None:
             tx_data["timestamp"] = datetime.now().timestamp()
         
-        # We must create a Transaction object that includes the timestamp.
-        # This assumes your Transaction class's __init__ accepts 'timestamp'.
+        
         transaction = Transaction(
             sender=tx_data["sender"],
             recipient=tx_data["recipient"],
@@ -73,7 +71,8 @@ class BlockchainService:
             humidity=tx_data["humidity"],
             transport_info=tx_data["transport_info"],
             status=tx_data["status"],
-            timestamp=tx_data["timestamp"]
+            timestamp=tx_data["timestamp"],
+            expiry_date=tx_data.get("expiry_date")
         )
         self.blockchain.add_transaction(transaction)
         
@@ -90,7 +89,14 @@ class BlockchainService:
         all_transactions.extend([tx.to_dict() for tx in self.blockchain.pending_transactions])
         return all_transactions
 
-    # ... (the rest of your methods remain the same) ...
+    def is_system_transaction(self, tx):
+        return tx.get("sender") == "Network" or tx.get("product_id") == "reward"
+
+    def get_supply_chain_transactions(self):
+        return [
+            tx for tx in self.get_all_transactions()
+            if not self.is_system_transaction(tx)
+        ]
 
     def get_latest_tx_for_product(self, product_id):
         for block in reversed(self.blockchain.chain):
@@ -115,7 +121,17 @@ class BlockchainService:
             for tx in block.transactions:
                 if tx.get('product_id') == product_id:
                     history.append(tx)
-        return history
+        return sorted(history, key=lambda tx: tx.get("timestamp", 0))
+
+    def get_product_summaries(self):
+        latest_by_product = {}
+        for tx in self.get_supply_chain_transactions():
+            product_id = tx.get("product_id")
+            if not product_id:
+                continue
+            if product_id not in latest_by_product or tx.get("timestamp", 0) > latest_by_product[product_id].get("timestamp", 0):
+                latest_by_product[product_id] = tx
+        return sorted(latest_by_product.values(), key=lambda tx: tx.get("timestamp", 0), reverse=True)
 
     def get_blockchain(self):
         return self.blockchain

@@ -9,6 +9,7 @@ USERS = {
     'farmer1@example.com': ('pass123', 'farmer'),
     'dist1@example.com': ('pass123', 'distributor'),
     'retail1@example.com': ('pass123', 'retailer'),
+    'consumer1@example.com': ('pass123', 'consumer'),
 }
 
 # Decorator to ensure a user is logged in

@@ -41,7 +41,7 @@ def dashboard():
         
         # Pull other info from the latest transaction
         expiry = tx.get('expiry_date', None)
-        storage_temp = tx.get('storage_temp') or tx.get('temperature') # Use storage_temp if available, fallback to temperature
+        storage_temp = tx.get('storage_temp') or tx.get('temperature') 
         
         inventory.append({
             "id": tx['product_id'],
@@ -92,13 +92,13 @@ def update_inventory():
         "product_id": pid,
         "sender": user,
         "recipient": next_rcpt or user,
-        "location": last.get("location"), # Get location from the last transaction
+        "location": last.get("location"), 
         "temperature": float(temp) if temp else None,
         "humidity": float(hum) if hum else None,
-        "transport_info": None, # <-- ADDED: Key is now always present with a None value
+        "transport_info": None, 
         "status": "In Stock" if not next_rcpt else "Sold",
         "expiry_date": expiry,
-        "product_name": last.get("product_name") # Get product_name from the last transaction
+        "product_name": last.get("product_name") 
     }
 
     blockchain_service.add_transaction(tx)

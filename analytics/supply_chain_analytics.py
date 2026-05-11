@@ -13,16 +13,16 @@ def calculate_journey_stats(df: pd.DataFrame):
     if df.empty or 'status' not in df.columns or 'timestamp' not in df.columns:
         return {'avg_hours': 0, 'min_hours': 0, 'max_hours': 0, 'details': []}
 
-    # Ensure timestamp is in datetime format
+
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s')
 
-    # Find the start time (Registered) and end time (In Stock) for each product
+
     journey_times = df.groupby('product_id')['timestamp'].agg(['min', 'max']).reset_index()
     
-    # Calculate the duration in hours
+
     journey_times['duration_hours'] = (journey_times['max'] - journey_times['min']).dt.total_seconds() / 3600
     
-    # Get product names to make the results more readable
+
     product_names = df[['product_id', 'product_name']].drop_duplicates()
     journey_times = pd.merge(journey_times, product_names, on='product_id')
     

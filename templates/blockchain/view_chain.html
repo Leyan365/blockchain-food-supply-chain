@@ -20,7 +20,7 @@
                             <strong>Hash:</strong> <small>{{ block.hash }}</small><br>
                             <strong>Proof:</strong> <small>{{ block.proof }}</small>
                         </div>
-                        
+
                         <h5 class="card-title">Transactions ({{ block.transactions|length }})</h5>
                         {% if block.transactions %}
                             <ul class="list-group transaction-list">
@@ -41,7 +41,7 @@
                                         <div class="collapse" id="tx-details-{{ block.index }}-{{ loop.index }}">
                                             <hr>
                                             <strong>Location:</strong> {{ tx.location or 'N/A' }}<br>
-                                            <strong>Temp:</strong> {{ tx.temperature or 'N/A' }}°C<br>
+                                            <strong>Temp:</strong> {{ tx.temperature or 'N/A' }}&deg;C<br>
                                             <strong>Humidity:</strong> {{ tx.humidity or 'N/A' }}%<br>
                                             <strong>Info:</strong> {{ tx.transport_info or 'N/A' }}
                                         </div>

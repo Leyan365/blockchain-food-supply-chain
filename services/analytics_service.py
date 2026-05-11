@@ -2,7 +2,7 @@ import pandas as pd
 from services.blockchain_service import blockchain_service
 from analytics.fraud_detection import find_temperature_anomalies
 from analytics.supply_chain_analytics import calculate_journey_stats
-# --- Import the new visualization functions ---
+
 from analytics.visualization import (
     create_avg_temp_humidity_chart,
     create_delivery_time_boxplot,
@@ -15,15 +15,15 @@ class AnalyticsService:
         """
         Gathers all analytical data for the main dashboard, including chart JSON.
         """
-        all_txs = blockchain_service.get_all_transactions()
+        all_txs = blockchain_service.get_supply_chain_transactions()
         
         if not all_txs:
-            # Return a default empty structure if no data
+           
             return {
                 "kpis": {"total_products": 0, "total_anomalies": 0, "avg_journey_hours": 0},
                 "anomalies": [],
                 "journey_stats": {"details": []},
-                "charts": {} # Add empty charts dict
+                "charts": {} 
             }
 
         df = pd.DataFrame(all_txs)
@@ -59,8 +59,8 @@ class AnalyticsService:
             "kpis": kpis,
             "anomalies": temp_anomalies_df.to_dict('records'),
             "journey_stats": journey_stats,
-            "charts": charts_json # Add the charts to the payload
+            "charts": charts_json 
         }
 
-# Instantiate the service so we can import it easily elsewhere
+
 analytics_service = AnalyticsService()

@@ -13,6 +13,13 @@
                     <li class="mb-2"><strong>Total Blocks:</strong> {{ total_blocks }}</li>
                     <li class="mb-2"><strong>Total Transactions:</strong> {{ total_transactions }}</li>
                     <li class="mb-2"><strong>Network Status:</strong> <span class="text-success">{{ network_status }}</span></li>
+                    <li class="mb-2"><strong>Chain Integrity:</strong>
+                        {% if chain_valid %}
+                            <span class="text-success">Valid</span>
+                        {% else %}
+                            <span class="text-danger">Invalid</span>
+                        {% endif %}
+                    </li>
                     <li class="mb-2"><strong>Last Block:</strong> {{ last_block_time|time_ago }}</li>
                 </ul>
                 <a href="{{ url_for('auth.blockchain_explorer') }}" class="btn btn-secondary mt-auto">View Full Blockchain</a>
@@ -96,7 +103,7 @@
                             <div class="block-body">{{ block.transactions | length }} Txs</div>
                         </div>
                         {% if not loop.last or pending_transactions %}
-                            <div class="arrow">→</div>
+                            <div class="arrow">&rarr;</div>
                         {% endif %}
                     {% endfor %}
 

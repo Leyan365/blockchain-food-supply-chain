@@ -56,15 +56,12 @@
             border: none;
         }
 
-        /* Flash messages container with no horizontal padding */
         .flash-container {
             margin-top: 0 !important;
-          
             padding-left: 0;
             padding-right: 0;
         }
 
-        /* Add some horizontal margin inside alerts for breathing room */
         .flash-container .alert {
             margin-bottom: 0.5rem;
             margin-left: 1rem;
@@ -76,7 +73,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--tech-blue);">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/">🌱 Farm-to-Chain Fresh</a>
+        <a class="navbar-brand fw-bold" href="/">Farm-to-Chain Fresh</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -86,8 +83,10 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url_for(session['role'] + '.dashboard') }}">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('analytics.analytics_overview') }}">Analytics</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.blockchain_explorer') }}">Blockchain Explorer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('consumer.dashboard') }}">Track Product</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
                 {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('consumer.dashboard') }}">Track Product</a></li>
                     <li class="nav-item"><a class="nav-link" href="/auth/login">Login</a></li>
                 {% endif %}
             </ul>
@@ -95,7 +94,6 @@
     </div>
 </nav>
 
-<!-- Flash messages container -->
 <div class="flash-container">
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -112,8 +110,8 @@
 {% block content %}{% endblock %}
 
 <footer>
-    © {{ current_year }} Farm-to-Chain Fresh • 
-    <a href="#">Privacy</a> • 
+    &copy; {{ current_year }} Farm-to-Chain Fresh &middot;
+    <a href="#">Privacy</a> &middot;
     <a href="#">Terms</a>
 </footer>
 

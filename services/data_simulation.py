@@ -41,10 +41,9 @@ def generate_simulated_data(num_products=25):
         }
         blockchain_service.add_transaction(tx_data_farmer)
         print(f" -> Farmer registered product at {farm_location}")
-        time.sleep(0.5) # Shorten sleep time as we are using historical dates
+        time.sleep(0.5) 
 
         # --- b. Distributor Receives and Ships the Product ---
-        # --- THIS IS THE IMPROVEMENT ---
         # Make the journey from farm to distributor take 1-3 days
         dist_arrival_time = harvest_time + timedelta(days=random.randint(1, 3), hours=random.randint(0, 12))
         dist_location = random.choice(DIST_CENTERS)
@@ -64,7 +63,6 @@ def generate_simulated_data(num_products=25):
         time.sleep(0.5)
 
         # --- c. Retailer Stocks the Product ---
-        # --- THIS IS THE IMPROVEMENT ---
         # Make the journey from distributor to retailer take 6-18 hours
         retail_arrival_time = dist_arrival_time + timedelta(hours=random.randint(6, 18))
         retail_location = random.choice(RETAIL_STORES)

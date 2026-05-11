@@ -5,19 +5,18 @@
     <h2 class="text-center" style="color: var(--tech-blue);">Login to Farm-to-Chain Fresh</h2>
     <form method="POST" action="/auth/login" class="mt-4">
       <label for="username">Email/Username</label>
-      <input type="text" name="username" id="username" placeholder="you@example.com" 
+      <input type="text" name="username" id="username" placeholder="you@example.com"
              style="width:100%; padding:.5rem; margin:.5rem 0; border:1px solid var(--text-muted); border-radius:4px;" required>
 
       <label for="password">Password</label>
       <div style="position:relative;">
-        <input type="password" name="password" id="password" placeholder="••••••••" 
+        <input type="password" name="password" id="password" placeholder="Password"
                style="width:100%; padding:.5rem; margin:.5rem 0; border:1px solid var(--text-muted); border-radius:4px;" required>
-        <!-- You could add a JS toggle icon here -->
       </div>
 
       <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1rem;">Login</button>
     </form>
-    <p class="text-muted text-center mt-2">🔒 Secure Login</p>
+    <p class="text-muted text-center mt-2">Secure Login</p>
   </div>
 </div>
 {% endblock %}

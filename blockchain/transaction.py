@@ -2,7 +2,21 @@ import time
 import uuid
 
 class Transaction:
-    def __init__(self, sender, recipient, product_id, product_name, location=None, temperature=None, humidity=None, transport_info=None, status=None, timestamp=None, id=None):
+    def __init__(
+        self,
+        sender,
+        recipient,
+        product_id,
+        product_name,
+        location=None,
+        temperature=None,
+        humidity=None,
+        transport_info=None,
+        status=None,
+        timestamp=None,
+        id=None,
+        expiry_date=None
+    ):
         
         self.id = id if id else str(uuid.uuid4())
         
@@ -16,6 +30,7 @@ class Transaction:
         self.transport_info = transport_info
         self.status = status
         self.timestamp = timestamp or time.time()
+        self.expiry_date = expiry_date
 
     def to_dict(self):
         return {
@@ -29,7 +44,8 @@ class Transaction:
             'humidity': self.humidity,
             'transport_info': self.transport_info,
             'status': self.status,
-            'timestamp': self.timestamp
+            'timestamp': self.timestamp,
+            'expiry_date': self.expiry_date
         }
 
     def __repr__(self):

@@ -37,19 +37,19 @@ def dashboard():
         unique_product_ids.add(product_id)
         products_for_table.append({
             "name": latest_tx_data.get("product_name", "N/A"),
-            "id": latest_tx_data.get("product_id", "N/A"), # Renamed key to 'id' for template
+            "id": latest_tx_data.get("product_id", "N/A"), 
             "location": latest_tx_data.get("location", "Unknown"),
             "status": latest_tx_data.get("status", "In Transit"),
             "last_updated": datetime.fromtimestamp(latest_tx_data.get("timestamp")).strftime("%Y-%m-%d %H:%M") if latest_tx_data.get("timestamp") else "--" # Renamed key to 'last_updated'
         })
 
-    # --- Summary Statistics for Overview Cards ---
-    total_products_registered_by_farmer = len(unique_product_ids) # Count unique products for the "Total Products" card
+    #Summary Statistics for Overview Cards
+    total_products_registered_by_farmer = len(unique_product_ids) #Count unique products for the "Total Products" card
     
     # Pending transactions where the current farmer is the sender
     pending_tx_count = sum(1 for tx in farmer_related_transactions if tx.get("sender") == farmer and tx.get("status") == "Pending")
     
-    # Last transaction date initiated by this farmer (or related to, adjust as needed)
+    # Last transaction date initiated by this farmer 
     # Using 'sender' to denote an action initiated by the farmer
     last_sent_tx_timestamp = max(
         (tx.get("timestamp") for tx in farmer_related_transactions if tx.get("sender") == farmer),
@@ -61,34 +61,34 @@ def dashboard():
         "total_products": total_products_registered_by_farmer,
         "pending_transactions": pending_tx_count,
         "last_harvest": last_harvest_formatted,
-        "status": "Operational" # Hardcoded for now, can be dynamic later
+        "status": "Operational" # Hardcoded as this is for demonstration
     }
 
     # --- Recent Activities Feed ---
     # Sort all farmer-related transactions by timestamp in descending order
     recent_activity_list = sorted(farmer_related_transactions, key=lambda x: x.get("timestamp", 0), reverse=True)
     activity_feed_strings = []
-    for tx in recent_activity_list[:5]: # Take top 5 recent activities
+    for tx in recent_activity_list[:5]: 
         activity_type = "Registered" if tx.get("status") == "Registered" else "Transferred" if tx.get("recipient") else "Updated"
         actor = "You" if tx.get("sender") == farmer else tx.get("sender", "Someone")
         
-        # Craft a more descriptive activity string
+   
         activity_str = f"[{datetime.fromtimestamp(tx.get('timestamp')).strftime('%Y-%m-%d %H:%M')}] Product '{tx.get('product_name', 'N/A')}' (ID: {tx.get('product_id', 'N/A')[:8]}...) {activity_type} by {actor} at {tx.get('location', 'Unknown')}. Status: {tx.get('status', 'N/A')}."
         activity_feed_strings.append(activity_str)
 
 
     return render_template(
         "dashboard/farmer.html",
-        stats=stats,                 # Passes the aggregated stats
-        products=products_for_table, # Passes the list of unique products with their latest state
-        recent_activities=activity_feed_strings # Passes the formatted recent activities
+        stats=stats,                 
+        products=products_for_table, 
+        recent_activities=activity_feed_strings 
     )
 
 
 @farmer_bp.route('/add_transaction', methods=['POST'])
 def add_transaction():
     if 'username' not in session:
-        flash("Please log in to perform this action.", "warning") # Added flash message
+        flash("Please log in to perform this action.", "warning") 
         return redirect(url_for('auth.login'))
 
     sender = session['username']
@@ -104,14 +104,14 @@ def add_transaction():
 
     tx_data = {
         "product_name": product_name,
-        "product_id": product_id, # Use the generated unique ID
+        "product_id": product_id, 
         "sender": sender,
         "recipient": recipient,
         "location": location,
         "temperature": float(temperature) if temperature else None,
         "humidity": float(humidity) if humidity else None,
         "transport_info": transport_info,
-        "status": "Registered" # Initial status when a farmer adds a new product
+        "status": "Registered" 
     }
 
     try:

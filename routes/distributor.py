@@ -87,11 +87,11 @@ def update_shipment():
 
     # Build the update transaction using the existing product's info
     tx = {
-        "product_id": pid,  # <-- Use the correct product ID from the form
-        "product_name": last.get('product_name'), # <-- Get product_name from the last record
+        "product_id": pid, 
+        "product_name": last.get('product_name'), 
         "sender": user,
         "recipient": next_rcpt,
-        "location": last.get('location'), # <-- Get location from the last record
+        "location": last.get('location'),
         "temperature": float(temp) if temp else None,
         "humidity": float(hum) if hum else None,
         "transport_info": info,

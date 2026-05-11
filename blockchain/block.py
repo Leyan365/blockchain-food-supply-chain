@@ -44,6 +44,10 @@ class Block:
             'previous_hash': self.previous_hash,
             'hash': self.hash
         }
+
+    @property
+    def proof(self):
+        return self.nonce
     
     def __repr__(self):
         return f"Block<index: {self.index}, hash: {self.hash[:10]}..., prev_hash: {self.previous_hash[:10]}...>"
