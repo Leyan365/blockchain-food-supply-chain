@@ -2,152 +2,217 @@
 {% block title %}Analytics Dashboard{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-primary">Supply Chain Analytics Dashboard</h2>
-        <span class="badge bg-secondary">Real-time Data</span>
+<div class="container-fluid px-4 py-4">
+    <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 align-items-lg-center mb-4">
+        <div>
+            <h2 class="text-primary mb-1">Supply Chain Analytics</h2>
+            <p class="text-muted mb-0">{{ scope }} · filtered operational view</p>
+        </div>
+        <span class="badge {{ 'bg-success' if kpis.chain_valid else 'bg-danger' }} align-self-start align-self-lg-center">
+            Chain {{ 'Valid' if kpis.chain_valid else 'Invalid' }}
+        </span>
     </div>
 
-    <div class="row text-white">
-        <div class="col-md-4 mb-4">
-            <div class="card bg-success shadow-lg">
-                <div class="card-body">
-                    <h5 class="card-title">Total Products Tracked</h5>
-                    <h3 class="display-4">{{ kpis.total_products }}</h3>
-                </div>
+    <div class="card p-4 mb-4">
+        <form method="GET" action="{{ url_for('analytics.analytics_overview') }}" class="row g-3 align-items-end">
+            {% if can_filter_my_activity %}
+            <div class="col-md-3 col-xl-2">
+                <label class="form-label" for="data_scope">Data Scope</label>
+                <select class="form-select" id="data_scope" name="data_scope">
+                    <option value="">All supply-chain data</option>
+                    <option value="mine" {% if active_filters.data_scope == 'mine' %}selected{% endif %}>My activity</option>
+                </select>
             </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card bg-warning shadow-lg">
-                <div class="card-body">
-                    <h5 class="card-title">Detected Anomalies</h5>
-                    <h3 class="display-4">{{ kpis.total_anomalies }}</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card bg-info shadow-lg">
-                <div class="card-body">
-                    <h5 class="card-title">Avg. Journey Time (Hours)</h5>
-                    <h3 class="display-4">{{ kpis.avg_journey_hours|round(1) }}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card my-5 shadow-sm">
-        <div class="card-header bg-danger text-white">
-            <h4>Temperature Anomaly Report</h4>
-        </div>
-        <div class="card-body">
-            {% if anomalies %}
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Product ID</th>
-                            <th>Anomalous Temp (&deg;C)</th>
-                            <th>Location</th>
-                            <th>Timestamp</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for anomaly in anomalies %}
-                        <tr>
-                            <td>{{ anomaly.product_name }}</td>
-                            <td><code>{{ anomaly.product_id[:12] }}...</code></td>
-                            <td><span class="badge bg-danger fs-6">{{ anomaly.temperature }} &deg;C</span></td>
-                            <td>{{ anomaly.location }}</td>
-                            <td>{{ anomaly.timestamp|timestamp_to_datetime }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            {% else %}
-            <p class="text-muted text-center p-3">No temperature anomalies found. All shipments are within threshold.</p>
             {% endif %}
-        </div>
-    </div>
-
-    <div class="card my-5 shadow-sm">
-        <div class="card-header bg-primary text-white">
-            <h4>Product Journey Time Analysis</h4>
-        </div>
-        <div class="card-body">
-             {% if journey_stats.details %}
-             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Product ID</th>
-                            <th>Total Journey Time (Hours)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in journey_stats.details %}
-                        <tr>
-                            <td>{{ item.product_name }}</td>
-                            <td><code>{{ item.product_id[:12] }}...</code></td>
-                            <td>{{ item.duration_hours|round(2) }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-             </div>
-             {% else %}
-             <p class="text-muted text-center p-3">Not enough data to calculate journey times.</p>
-             {% endif %}
-        </div>
-    </div>
-
-    <hr class="my-5">
-    <div class="text-center mb-5">
-        <h2>Interactive Visualizations</h2>
-        <p class="lead text-muted">Explore the supply chain data through interactive charts.</p>
-    </div>
-
-    <div class="row my-4">
-        <div class="col-lg-12">
-            <h4 class="text-secondary">Bar Chart: Average Temperature & Humidity</h4>
-            <div class="card shadow bg-light">
-                <div class="card-body">
-                    <div id="bar-chart" style="height: 500px;"></div>
+            <div class="col-md-3 col-xl-2">
+                <label class="form-label" for="product_name">Product</label>
+                <select class="form-select" id="product_name" name="product_name">
+                    <option value="">All products</option>
+                    {% for product in available_filters.products %}
+                    <option value="{{ product }}" {% if active_filters.product_name == product %}selected{% endif %}>{{ product }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3 col-xl-2">
+                <label class="form-label" for="status">Status</label>
+                <select class="form-select" id="status" name="status">
+                    <option value="">All statuses</option>
+                    {% for status in available_filters.statuses %}
+                    <option value="{{ status }}" {% if active_filters.status == status %}selected{% endif %}>{{ status }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3 col-xl-2">
+                <label class="form-label" for="stakeholder">Stakeholder</label>
+                <select class="form-select" id="stakeholder" name="stakeholder">
+                    <option value="">All stakeholders</option>
+                    {% for stakeholder in available_filters.stakeholders %}
+                    <option value="{{ stakeholder }}" {% if active_filters.stakeholder == stakeholder %}selected{% endif %}>{{ stakeholder }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3 col-xl-2">
+                <label class="form-label" for="start_date">From</label>
+                <input class="form-control" type="date" id="start_date" name="start_date" value="{{ active_filters.start_date or '' }}">
+            </div>
+            <div class="col-md-3 col-xl-2">
+                <label class="form-label" for="end_date">To</label>
+                <input class="form-control" type="date" id="end_date" name="end_date" value="{{ active_filters.end_date or '' }}">
+            </div>
+            <div class="col-md-3 col-xl-1">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="anomalies_only" name="anomalies_only" value="1" {% if active_filters.anomalies_only %}checked{% endif %}>
+                    <label class="form-check-label" for="anomalies_only">Anomalies</label>
                 </div>
+            </div>
+            <div class="col-md-6 col-xl-1 d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Apply</button>
+                <a class="btn btn-outline-secondary" href="{{ url_for('analytics.analytics_overview') }}">Reset</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="row g-3 mb-4">
+        {% set cards = [
+            ('Products', kpis.total_products, 'Unique products in view', 'bg-success'),
+            ('Transactions', kpis.total_transactions, 'Supply-chain records', 'bg-primary'),
+            ('In Transit', kpis.in_transit, 'Active movement events', 'bg-info'),
+            ('Sold / Stocked', kpis.completed_or_sold, 'Retail-ready outcomes', 'bg-secondary'),
+            ('Anomalies', kpis.total_anomalies, kpis.anomaly_rate ~ '% anomaly rate', 'bg-warning'),
+            ('Avg Temp', kpis.avg_temperature ~ ' deg C', 'Filtered readings', 'bg-danger'),
+            ('Avg Journey', kpis.avg_journey_hours|round(1) ~ 'h', 'Product duration', 'bg-dark')
+        ] %}
+        {% for title, value, note, color in cards %}
+        <div class="col-sm-6 col-lg-4 col-xxl-2">
+            <div class="card h-100 text-white {{ color }}">
+                <div class="card-body">
+                    <div class="small opacity-75">{{ title }}</div>
+                    <div class="fs-2 fw-bold">{{ value }}</div>
+                    <div class="small">{{ note }}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="card p-4 mb-4">
+        <h4 class="mb-3">Key Insights</h4>
+        <div class="row g-3">
+            {% for insight in insights %}
+            <div class="col-lg-4">
+                <div class="p-3 bg-light border rounded h-100">{{ insight }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-xl-6">
+            <div class="card p-3 h-100">
+                <h5 class="text-secondary">Temperature Trend</h5>
+                <div id="scatter-plot" style="height: 420px;"></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card p-3 h-100">
+                <h5 class="text-secondary">Status Distribution</h5>
+                <div id="status-chart" style="height: 420px;"></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card p-3 h-100">
+                <h5 class="text-secondary">Product Conditions</h5>
+                <div id="bar-chart" style="height: 420px;"></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card p-3 h-100">
+                <h5 class="text-secondary">Stakeholder Activity</h5>
+                <div id="pie-chart" style="height: 420px;"></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card p-3 h-100">
+                <h5 class="text-secondary">Journey Duration</h5>
+                <div id="box-plot" style="height: 420px;"></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card p-3 h-100">
+                <h5 class="text-secondary">Anomalies by Product</h5>
+                <div id="anomaly-chart" style="height: 420px;"></div>
             </div>
         </div>
     </div>
 
-    <div class="row my-4">
-        <div class="col-lg-12">
-            <h4 class="text-secondary">Pie Chart: Transactions by Stakeholder</h4>
-            <div class="card shadow bg-light">
+    <div class="row g-4">
+        <div class="col-xl-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">Temperature Anomaly Report</h4>
+                </div>
                 <div class="card-body">
-                    <div id="pie-chart" style="height: 500px;"></div>
+                    {% if anomalies %}
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Product ID</th>
+                                    <th>Temp</th>
+                                    <th>Location</th>
+                                    <th>Timestamp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for anomaly in anomalies[:10] %}
+                                <tr>
+                                    <td>{{ anomaly.product_name }}</td>
+                                    <td><code>{{ anomaly.product_id[:12] }}...</code></td>
+                                    <td><span class="badge bg-danger fs-6">{{ anomaly.temperature }} &deg;C</span></td>
+                                    <td>{{ anomaly.location }}</td>
+                                    <td>{{ anomaly.timestamp|timestamp_to_datetime }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p class="text-muted text-center p-3">No temperature anomalies found for this view.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row my-4">
-        <div class="col-lg-12">
-            <h4 class="text-secondary">Box Plot: Delivery Time Distribution</h4>
-            <div class="card shadow bg-light">
-                <div class="card-body">
-                     <div id="box-plot" style="height: 500px;"></div>
+        <div class="col-xl-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Longest Product Journeys</h4>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row my-4">
-        <div class="col-lg-12">
-            <h4 class="text-secondary">Scatter Plot: Temperature Readings Over Time</h4>
-            <div class="card shadow bg-light">
                 <div class="card-body">
-                    <div id="scatter-plot" style="height: 500px;"></div>
+                     {% if journey_stats.details %}
+                     <div class="table-responsive">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Product ID</th>
+                                    <th>Hours</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in journey_stats.details[:10] %}
+                                <tr>
+                                    <td>{{ item.product_name }}</td>
+                                    <td><code>{{ item.product_id[:12] }}...</code></td>
+                                    <td>{{ item.duration_hours|round(2) }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                     </div>
+                     {% else %}
+                     <p class="text-muted text-center p-3">Not enough data to calculate journey times.</p>
+                     {% endif %}
                 </div>
             </div>
         </div>
@@ -156,23 +221,23 @@
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
-    const barChartData = {{ charts.bar_chart | tojson }};
-    const pieChartData = {{ charts.pie_chart | tojson }};
-    const boxPlotData = {{ charts.box_plot | tojson }};
-    const scatterPlotData = {{ charts.scatter_plot | tojson }};
+    const chartMap = {
+        'bar-chart': {{ charts.bar_chart | tojson }},
+        'pie-chart': {{ charts.pie_chart | tojson }},
+        'box-plot': {{ charts.box_plot | tojson }},
+        'scatter-plot': {{ charts.scatter_plot | tojson }},
+        'status-chart': {{ charts.status_chart | tojson }},
+        'anomaly-chart': {{ charts.anomaly_chart | tojson }}
+    };
 
-    if (barChartData) {
-        Plotly.newPlot('bar-chart', barChartData.data, barChartData.layout, {responsive: true});
-    }
-    if (pieChartData) {
-        Plotly.newPlot('pie-chart', pieChartData.data, pieChartData.layout, {responsive: true});
-    }
-    if (boxPlotData) {
-        Plotly.newPlot('box-plot', boxPlotData.data, boxPlotData.layout, {responsive: true});
-    }
-    if (scatterPlotData) {
-        Plotly.newPlot('scatter-plot', scatterPlotData.data, scatterPlotData.layout, {responsive: true});
-    }
+    Object.entries(chartMap).forEach(([id, chart]) => {
+        const target = document.getElementById(id);
+        if (target && chart) {
+            Plotly.newPlot(id, chart.data, chart.layout, {responsive: true, displayModeBar: false});
+        } else if (target) {
+            target.innerHTML = '<div class="h-100 d-flex align-items-center justify-content-center text-muted">No data for this chart.</div>';
+        }
+    });
 </script>
 
 {% endblock %}
