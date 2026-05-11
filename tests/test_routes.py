@@ -39,6 +39,18 @@ class RouteTests(unittest.TestCase):
         self.assertIn(product_id.encode(), response.data)
         self.assertIn(b"Journey History", response.data)
 
+    def test_product_qr_endpoint_returns_png(self):
+        summaries = blockchain_service.get_product_summaries()
+        if not summaries:
+            self.skipTest("No product data available for route test.")
+
+        product_id = summaries[0]["product_id"]
+        response = self.client.get(f"/consumer/qr/{product_id}")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.mimetype, "image/png")
+        self.assertTrue(response.data.startswith(b"\x89PNG"))
+
     def test_role_dashboard_requires_login(self):
         response = self.client.get("/farmer/dashboard", follow_redirects=False)
 

@@ -85,6 +85,7 @@
           <th>Expiry Date</th>
           <th>Status</th>
           <th>Last Updated</th>
+          <th>QR</th>
           <th>Track</th>
         </tr>
       </thead>
@@ -98,12 +99,13 @@
           <td>{{ item.expiry_date or '-' }}</td>
           <td>{{ item.status }}</td>
           <td>{{ item.last_updated }}</td>
+          <td><img src="{{ url_for('consumer.product_qr', product_id=item.id) }}" alt="Tracking QR for {{ item.name }}" width="72" height="72"></td>
           <td><a class="btn btn-sm btn-outline-primary" href="{{ url_for('consumer.track_product_by_id', product_id=item.id) }}">Track</a></td>
         </tr>
         {% endfor %}
         {% if inventory|length == 0 %}
         <tr>
-          <td colspan="8" class="text-center text-muted">No inventory records.</td>
+          <td colspan="9" class="text-center text-muted">No inventory records.</td>
         </tr>
         {% endif %}
       </tbody>

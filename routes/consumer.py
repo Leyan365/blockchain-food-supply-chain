@@ -1,4 +1,7 @@
-from flask import Blueprint, render_template, request
+from io import BytesIO
+
+import qrcode
+from flask import Blueprint, render_template, request, send_file, url_for
 from services.blockchain_service import blockchain_service
 
 consumer_bp = Blueprint('consumer', __name__)
@@ -37,3 +40,12 @@ def track_product_by_id(product_id):
         latest=latest,
         chain_valid=blockchain_service.get_blockchain().is_chain_valid()
     )
+
+@consumer_bp.route('/qr/<product_id>')
+def product_qr(product_id):
+    tracking_url = url_for('consumer.track_product_by_id', product_id=product_id, _external=True)
+    image = qrcode.make(tracking_url)
+    buffer = BytesIO()
+    image.save(buffer, format='PNG')
+    buffer.seek(0)
+    return send_file(buffer, mimetype='image/png')

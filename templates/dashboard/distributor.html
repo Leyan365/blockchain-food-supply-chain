@@ -82,6 +82,7 @@
           <th>Location</th>
           <th>Status</th>
           <th>Last Update</th>
+          <th>QR</th>
           <th>Track</th>
         </tr>
       </thead>
@@ -94,12 +95,13 @@
           <td>{{ p.location }}</td>
           <td>{{ p.status }}</td>
           <td>{{ p.last_updated }}</td>
+          <td><img src="{{ url_for('consumer.product_qr', product_id=p.id) }}" alt="Tracking QR for {{ p.name }}" width="72" height="72"></td>
           <td><a class="btn btn-sm btn-outline-primary" href="{{ url_for('consumer.track_product_by_id', product_id=p.id) }}">Track</a></td>
         </tr>
         {% endfor %}
         {% if shipments|length == 0 %}
         <tr>
-          <td colspan="7" class="text-center text-muted">No shipments to display.</td>
+          <td colspan="8" class="text-center text-muted">No shipments to display.</td>
         </tr>
         {% endif %}
       </tbody>
